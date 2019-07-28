@@ -8,6 +8,7 @@ readonly INDEX_FILE=dist/index.md
 mkdir -p "$TMP_DIR"
 cp config.yml "$TMP_DIR"
 
+mkdir dist
 cat << EOS > "$INDEX_FILE"
 # スライド一覧
 
