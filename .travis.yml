@@ -1,0 +1,18 @@
+language: ruby
+
+install:
+  - gem install reveal-ck
+
+script:
+  - ./build.sh
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token:
+    secure: Jqsvwp6VSxSM+8C70osBO38QVs/yZ2dW77T9BLT4dy/sIUifUPYLjHlBYwN7SwIQyf+fpBBxU5lCutfuICYEjWoOO9wsW5P96r2jC5sGZl2arE/tPhJyRgkmyTRsTGz8H3S2BJ3mLVjBVNtZP+26cqcIWDiMbMFSADIA5QH2FAYq6JjljkBJkHdo4Rdi3iY1BJldZugIHLgdwcCqVSUjqOb4zA+2fu32LuIJ321YoiLTS8TlH1Ro24hCvGd2J0JsssA3QMUxeYUMVuFEQXPDsov6+FixL5KeWF6NzVLEQ3rra/4ntA4R5zzkDlXqzGOydm6suxewn6AV4A6r32ecX7lTDNte3L0w1QdKF0VN4dW84twLGcQy6n20vFKr/vppwXEu8YbYll1GZBWrBRZp7cfcNRvGd9mk+1oMdspFO3wtEBWAtJkpGyWjSwU+3vBrLWMUjrZr9bTrlrgyoeWypxLGWmNnHJ53lcIqrCr0u0atLYkDGZCMVYg2BQM61ESaV2iS18OCjCZXD2iiLracNIA4U5Mr/zd6rVfv8mrDaGDHChkhl9aqb9OFvFcEkZjpHuLUrzroQcr0QBSeryMyXgERFEqMeUsmUA6yqoCNHhKaNLoAEANCmHw18JujyqOEyyf6wl5Y21w8ns8l9mdbPxg6GjbyjI/p8O0cbfAmehM=
+  keep-history: true
+  local-dir: dist
+  target-branch: gh-pages
+  on:
+    branch: master
