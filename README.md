@@ -1,36 +1,12 @@
 # slide
 
-発表資料とかをまとめておきたい。
+[![Build Status](https://travis-ci.org/jiro4989/slide.svg?branch=master)](https://travis-ci.org/jiro4989/slide)
 
-Marpというツールでスライドが作れるらしい
+発表スライドを管理する。
 
-https://dev.classmethod.jp/tool/make-slides-from-markdown-with-marp/
+## スライドの生成
 
-こっちも良さそう
-
-https://blog.hiroppy.me/entry/fusuma
-
-https://blog.hiroppy.me/entry/fusuma-1.0.0
-
-pandoc
-
-gem install slideshow
-slideshow i s6blank:
-
-
-reveal-ck
-https://qiita.com/y_shoji/items/8df93817a8b8c2444f7b
-
-sudo gem install reveal-ck
-
-    slide/
-      src/
-        2019/
-          shellgei/
-            textimg-impl/
-              slides.md
-      dist/
-        2019/
-          shellgei/
-            textimg-impl/
-              index.html
+* src配下にMarkdownファイルを配置する。 
+* masterブランチにPUSHする
+* TravisCIが走る
+* gh-pagesが更新される
