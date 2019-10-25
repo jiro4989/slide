@@ -1,0 +1,29 @@
+@startuml
+
+frame "Remote environment" {
+  [GitHub]
+  [Travis CI]
+  [test script 1]
+  [source code 1]
+}
+
+frame "Local environment" {
+  Actor Developer as dev
+  [test script 2]
+  [source code 2]
+}
+
+dev -ri-> [test script 2] : Start script
+[test script 2] -ri-> [source code 2] : Run test
+
+dev -up-> [GitHub] : Push
+[GitHub] -ri-> [Travis CI] : Event hook
+[Travis CI] -ri-> [test script 1] : Start script
+[test script 1] -ri-> [source code 1] : Run test
+
+dev -[hidden]up- [GitHub]
+dev -[hidden]up- [Travis CI]
+dev -[hidden]up- [test script 1]
+dev -[hidden]up- [source code 1]
+
+@enduml
