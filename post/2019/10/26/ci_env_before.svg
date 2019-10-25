@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="305px" preserveAspectRatio="none" style="width:737px;height:305px;" version="1.1" viewBox="0 0 737 305" width="737px" zoomAndPan="magnify"><defs><filter height="300%" id="fcl83gln2zjyv" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[24b6ff05fa02fc0421ee601315c499eb]
+cluster Remote environment--><rect fill="#FFFFFF" filter="url(#fcl83gln2zjyv)" height="87" style="stroke: #000000; stroke-width: 1.5;" width="704" x="22" y="24"/><path d="M197,25 L197,33.2969 L187,43.2969 L22,43.2969 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="165" x="25" y="37.9951">Remote environment</text><!--MD5=[f539fa09edf8093dfccce24e5b4db230]
+cluster Local environment--><rect fill="#FFFFFF" filter="url(#fcl83gln2zjyv)" height="134" style="stroke: #000000; stroke-width: 1.5;" width="523" x="200" y="160"/><path d="M356,161 L356,169.2969 L346,179.2969 L200,179.2969 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="146" x="203" y="173.9951">Local environment</text><!--MD5=[d94de7339830101782f7d1d85ee30a29]
+entity GitHub--><rect fill="#FEFECE" filter="url(#fcl83gln2zjyv)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="67" x="38.5" y="59"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="33.5" y="64"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="33.5" y="85.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="48.5" y="81.9951">GitHub</text><!--MD5=[a8ded692a6a051bd0f083e2ad6f24caf]
+entity Travis CI--><rect fill="#FEFECE" filter="url(#fcl83gln2zjyv)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="77" x="213.5" y="59"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="208.5" y="64"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="208.5" y="85.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="57" x="223.5" y="81.9951">Travis CI</text><!--MD5=[38a2bf69b70ce5fdb423fb6d56ace984]
+entity test script 1--><rect fill="#FEFECE" filter="url(#fcl83gln2zjyv)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="102" x="398" y="59"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="393" y="64"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="393" y="85.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="408" y="81.9951">test script 1</text><!--MD5=[5d5809c74d17d09406c1e7e5664e6fff]
+entity source code 1--><rect fill="#FEFECE" filter="url(#fcl83gln2zjyv)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="590" y="59"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="585" y="64"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="585" y="85.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="600" y="81.9951">source code 1</text><!--MD5=[3d99d59a27ec55cd9b0b1490801f78bc]
+entity dev--><ellipse cx="252" cy="205" fill="#FEFECE" filter="url(#fcl83gln2zjyv)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M252,213 L252,240 M239,221 L265,221 M252,240 L239,255 M252,240 L265,255 " fill="none" filter="url(#fcl83gln2zjyv)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="216.5" y="274.9951">Developer</text><!--MD5=[76110a43259464321b3def5fa8121a57]
+entity test script 2--><rect fill="#FEFECE" filter="url(#fcl83gln2zjyv)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="102" x="395" y="218.5"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="390" y="223.5"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="390" y="244.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="405" y="241.4951">test script 2</text><!--MD5=[ee005a2399a0d62aa184ee4a41b7c70d]
+entity source code 2--><rect fill="#FEFECE" filter="url(#fcl83gln2zjyv)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="587" y="218.5"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="582" y="223.5"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="582" y="244.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="597" y="241.4951">source code 2</text><!--MD5=[75c5d40208f73031f9a292d9b0d297af]
+link dev to test script 2--><path d="M287.583,236.5 C316.136,236.5 356.752,236.5 389.709,236.5 " fill="none" id="dev-&gt;test script 2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="394.93,236.5,385.93,232.5,389.93,236.5,385.93,240.5,394.93,236.5" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="71" x="305.75" y="229.5669">Start script</text><!--MD5=[d0026a22845457a397800c42eddc8c87]
+link test script 2 to source code 2--><path d="M497.241,236.5 C522.972,236.5 554.428,236.5 581.856,236.5 " fill="none" id="test script 2-&gt;source code 2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="586.928,236.5,577.928,232.5,581.928,236.5,577.928,240.5,586.928,236.5" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="53" x="515.5" y="229.5669">Run test</text><!--MD5=[0e97f39fd3296a705dd895c6dd5f3b04]
+reverse link GitHub to dev--><path d="M89.0753,99.137 C100.3686,112.585 115.838,130.033 131,144 C158.022,168.893 191.524,193.826 216.42,211.3644 " fill="none" id="GitHub&lt;-dev" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="85.7095,95.1,88.4,104.5742,88.9111,98.9405,94.5448,99.4516,85.7095,95.1" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="31" x="132" y="140.0669">Push</text><!--MD5=[197bea2e67ccb0f5561252e9d8bb98a3]
+link GitHub to dev--><!--MD5=[ed88fc3b05f783831266d1f6dfc1ee9a]
+link GitHub to Travis CI--><path d="M105.8566,77 C134.738,77 176.461,77 207.94,77 " fill="none" id="GitHub-&gt;Travis CI" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="213.296,77,204.296,73,208.296,77,204.296,81,213.296,77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="71" x="124" y="70.0669">Event hook</text><!--MD5=[0196cf8a43ff49170313822853cb8377]
+link Travis CI to test script 1--><path d="M290.921,77 C319.979,77 360.117,77 392.675,77 " fill="none" id="Travis CI-&gt;test script 1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="397.833,77,388.833,73,392.833,77,388.833,81,397.833,77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="71" x="308.75" y="70.0669">Start script</text><!--MD5=[d75fc96d3d06b823b838872897663815]
+link test script 1 to source code 1--><path d="M500.241,77 C525.972,77 557.428,77 584.856,77 " fill="none" id="test script 1-&gt;source code 1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="589.928,77,580.928,73,584.928,77,580.928,81,589.928,77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="53" x="518.5" y="70.0669">Run test</text><!--MD5=[039ee006c1722522abb74d0f97e58ca3]
+link Travis CI to dev--><!--MD5=[f1fd858df71be3db69099ef281e5b2ea]
+link test script 1 to dev--><!--MD5=[d8de7f1b29d3562f747c886cc343185c]
+link source code 1 to dev--><!--MD5=[1130c245d7850fb982370a1e1c6846ee]
+@startuml
+frame "Remote environment" {
+  [GitHub]
+  [Travis CI]
+  [test script 1]
+  [source code 1]
+}
+
+frame "Local environment" {
+  Actor Developer as dev
+  [test script 2]
+  [source code 2]
+}
+
+dev -ri-> [test script 2] : Start script
+[test script 2] -ri-> [source code 2] : Run test
+
+dev -up-> [GitHub] : Push
+[GitHub] -ri-> [Travis CI] : Event hook
+[Travis CI] -ri-> [test script 1] : Start script
+[test script 1] -ri-> [source code 1] : Run test
+
+dev -[hidden]up- [GitHub]
+dev -[hidden]up- [Travis CI]
+dev -[hidden]up- [test script 1]
+dev -[hidden]up- [source code 1]
+@enduml
+
+PlantUML version 1.2019.11(Sun Sep 22 10:02:15 UTC 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

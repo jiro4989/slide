@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1178px" preserveAspectRatio="none" style="width:2989px;height:1178px;" version="1.1" viewBox="0 0 2989 1178" width="2989px" zoomAndPan="magnify"><defs><filter height="300%" id="f3lroi9t3xaz1" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[93439c853d743cdf61eadc59442f939a]
+cluster Cloud service--><path d="M30.8608,194.329 C33.153,187.7956 38.6448,188.3752 42.4886,192.6616 C45.5065,187.6662 49.878,187.237 53.672,191.7487 C56.6252,185.8547 62.9888,184.6365 67.2771,190.1575 C70.1528,184.4852 73.4862,183.0078 78.237,188.2797 C82.398,181.6898 87.2507,182.6363 90.8412,188.8418 C94.6119,184.2781 98.6435,185.0789 101.1258,190.2088 C104.7813,185.1503 110.3893,186.1807 112.5748,191.7869 C122.2528,186.8703 128.0844,188.5815 131,199.604 C132.1096,199.938 132.0458,200.8386 131.3674,201.5161 C138.4786,204.6033 139.2347,208.8687 133.3264,213.9991 C140.8875,216.5952 141.3743,221.3064 136.5335,226.9691 C141.8872,229.6197 143.6092,233.9204 138.3975,238.3078 C144.7841,241.41 145.4236,247.0984 139.1446,250.9492 C145.7996,254.1959 147.3368,259.1078 140.8604,264.0715 C146.1888,268.7634 146.7918,274.1855 139.1815,277.226 C144.1279,282.2829 143.7924,287.2335 136.8807,290.1851 C142.7528,294.5854 142.3612,299.5398 135.3224,302.2761 C140.9391,307.0112 142.2326,311.3982 134.7579,315.5777 C140.447,325.5292 135.86,334.5751 124,334.604 C125.0853,334.1206 125.716,334.6978 125.6899,335.7934 C121.7898,343.0761 117.7542,341.5471 112.9919,336.6957 C110.4891,343.1871 106.7321,343.7216 101.766,339.2085 C99.3853,345.0893 93.7808,345.6733 90.396,340.2155 C88.5057,346.4011 83.1712,347.9009 79.0979,342.3098 C74.6095,348.4841 68.5294,346.788 66.2024,340.1367 C62.4711,345.7145 58.0517,344.5642 55.3175,339.1494 C50.1468,343.6339 45.6023,343.2961 42.9165,336.4338 C33.7713,342.6824 23.9531,339.8337 23,327.604 C23.5651,327.4695 23.9414,327.594 23.8662,328.28 C19.1886,324.6007 17.9702,319.4615 24.4367,316.3134 C18.4895,313.02 18.0899,308.0251 23.3001,303.7244 C16.9457,300.259 17.9021,294.5413 23.2842,291.0612 C16.913,287.1479 15.9355,281.7336 23.0878,277.6226 C16.9535,274.7199 15.5189,270.0202 21.293,265.3728 C15.6441,261.7597 14.9429,256.1961 21.1167,252.4221 C16.3058,247.6123 15.7296,243.353 22.2358,239.5253 C16.0675,234.4552 15.6588,229.9004 22.9211,225.4859 C16.9325,221.5615 18.338,216.203 24.2228,213.5764 C15.5384,203.7291 18.5813,196.9136 30,192.604 C31.024,192.8078 31.3941,193.3481 30.8608,194.329 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="108" x="23" y="210.5991">Cloud service</text><!--MD5=[42591781c74864aa6bd8b9830e23a81c]
+cluster Docker--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="292" style="stroke: #000000; stroke-width: 1.5;" width="2813" x="165" y="382.604"/><path d="M231,383.604 L231,391.9009 L221,401.9009 L165,401.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="56" x="168" y="396.5991">Docker</text><!--MD5=[a04c08d30b7cc183f922658f0a9d68e1]
+cluster Shellcheck container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="87" style="stroke: #000000; stroke-width: 1.5;" width="181" x="189" y="539.604"/><path d="M364,540.604 L364,548.9009 L354,558.9009 L189,558.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="165" x="192" y="553.5991">Shellcheck container</text><!--MD5=[121383c95d4790efbbd28a201c51f617]
+cluster Shfmt container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="87" style="stroke: #000000; stroke-width: 1.5;" width="142" x="468" y="539.604"/><path d="M604,540.604 L604,548.9009 L594,558.9009 L468,558.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="126" x="471" y="553.5991">Shfmt container</text><!--MD5=[aaa8357159ddd3b87c2fbfed8ede9e36]
+cluster Bash containers--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="225" style="stroke: #000000; stroke-width: 1.5;" width="2272" x="682" y="425.604"/><path d="M819,426.604 L819,434.9009 L809,444.9009 L682,444.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="127" x="685" y="439.5991">Bash containers</text><!--MD5=[30f4c540d17861483bc5b1ebb039f511]
+cluster Bash default container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="194" x="706" y="468.604"/><path d="M894,469.604 L894,477.9009 L884,487.9009 L706,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="178" x="709" y="482.5991">Bash default container</text><!--MD5=[c6d786dc410427dcaaf5af8ceeb0b946]
+cluster Bash 3.0 container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="164" x="1024" y="468.604"/><path d="M1182,469.604 L1182,477.9009 L1172,487.9009 L1024,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="1027" y="482.5991">Bash 3.0 container</text><!--MD5=[09518746f2b333cc54b4ceb0e7aeb854]
+cluster Bash 4.0 container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="164" x="1312" y="468.604"/><path d="M1470,469.604 L1470,477.9009 L1460,487.9009 L1312,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="1315" y="482.5991">Bash 4.0 container</text><!--MD5=[9a69a434dd9c8a1c1823f348655b1f63]
+cluster Bash 4.1 container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="164" x="1600" y="468.604"/><path d="M1758,469.604 L1758,477.9009 L1748,487.9009 L1600,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="1603" y="482.5991">Bash 4.1 container</text><!--MD5=[5a6cb7de5a1735f68ff3b9f2bea52e4a]
+cluster Bash 4.2 container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="164" x="1888" y="468.604"/><path d="M2046,469.604 L2046,477.9009 L2036,487.9009 L1888,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="1891" y="482.5991">Bash 4.2 container</text><!--MD5=[dcdd81dd63bfe451a799909d5c097d57]
+cluster Bash 4.3 container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="164" x="2176" y="468.604"/><path d="M2334,469.604 L2334,477.9009 L2324,487.9009 L2176,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="2179" y="482.5991">Bash 4.3 container</text><!--MD5=[e54ccd3419a16d867dbc370b449fc1a0]
+cluster Bash 4.4 container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="164" x="2464" y="468.604"/><path d="M2622,469.604 L2622,477.9009 L2612,487.9009 L2464,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="2467" y="482.5991">Bash 4.4 container</text><!--MD5=[f2b3b77f147fa8982aec4acb33e9bf1d]
+cluster Bash 5.0 container--><rect fill="#FFFFFF" filter="url(#f3lroi9t3xaz1)" height="158" style="stroke: #000000; stroke-width: 1.5;" width="164" x="2766" y="468.604"/><path d="M2924,469.604 L2924,477.9009 L2914,487.9009 L2766,487.9009 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="2769" y="482.5991">Bash 5.0 container</text><!--MD5=[d94de7339830101782f7d1d85ee30a29]
+entity GitHub--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="67" x="43" y="219.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="38" y="224.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="38" y="245.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="53" y="242.5991">GitHub</text><!--MD5=[a8ded692a6a051bd0f083e2ad6f24caf]
+entity Travis CI--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="77" x="38" y="290.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="33" y="295.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="33" y="316.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="57" x="48" y="313.5991">Travis CI</text><!--MD5=[ca60f6b7202ec65490402cbc94d45104]
+entity shellcheck--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="94" x="232" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="227" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="227" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="242" y="597.5991">shellcheck</text><!--MD5=[7fda745e481fde25b336bdb9f8e42787]
+entity shfmt--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="509" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="504" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="504" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="519" y="597.5991">shfmt</text><!--MD5=[d6668ac4f900b5e52dcbcd0d50aee23d]
+entity bats 1--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="771" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="766" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="766" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="781" y="526.5991">bats 1</text><!--MD5=[5c77b9d691413e10b9e90392fcf92d37]
+entity bash default--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="105" x="750" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="745" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="745" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="760" y="597.5991">bash default</text><!--MD5=[4d18985c224a00e4729f359ed8e57fbe]
+entity bats 2--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="1074.5" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1069.5" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1069.5" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="1084.5" y="526.5991">bats 2</text><!--MD5=[650defbd296656abf9d25fb7e15c0b92]
+entity bash 3.0--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="1066" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1061" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1061" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="1076" y="597.5991">bash 3.0</text><!--MD5=[1c11d54adebf60a1473a8009165816c9]
+entity bats 3--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="1362.5" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1357.5" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1357.5" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="1372.5" y="526.5991">bats 3</text><!--MD5=[eb5218081940db9a7feba315913fbdab]
+entity bash 4.0--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="1354" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1349" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1349" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="1364" y="597.5991">bash 4.0</text><!--MD5=[6842bba5a367761b1df34b87b2479810]
+entity bats 4--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="1650.5" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1645.5" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1645.5" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="1660.5" y="526.5991">bats 4</text><!--MD5=[9d9e2a00d06aacaec907248ab0f4ad85]
+entity bash 4.1--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="1642" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1637" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1637" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="1652" y="597.5991">bash 4.1</text><!--MD5=[4588005c2e4a983a58443306691b0614]
+entity bats 5--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="1938.5" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1933.5" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1933.5" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="1948.5" y="526.5991">bats 5</text><!--MD5=[2bb71e85f3512b7a50f735aa0e096211]
+entity bash 4.2--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="1930" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1925" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="1925" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="1940" y="597.5991">bash 4.2</text><!--MD5=[1841d050eeb2cc192b0e5d31b724f9d4]
+entity bats 6--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="2226.5" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2221.5" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2221.5" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="2236.5" y="526.5991">bats 6</text><!--MD5=[a60c345163678d25539fdf87d5f713e6]
+entity bash 4.3--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="2218" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2213" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2213" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="2228" y="597.5991">bash 4.3</text><!--MD5=[ec4366c240bde735dc23573896291d61]
+entity bats 7--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="2514.5" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2509.5" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2509.5" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="2524.5" y="526.5991">bats 7</text><!--MD5=[732c89c410d30e8e6f17bff2ced01b0c]
+entity bash 4.4--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="2506" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2501" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2501" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="2516" y="597.5991">bash 4.4</text><!--MD5=[627ed915452db220bff7b3c6a5feffb6]
+entity bats 8--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="2816.5" y="503.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2811.5" y="508.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2811.5" y="529.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="2826.5" y="526.5991">bats 8</text><!--MD5=[57e6bfb25fd10c2a4cec61138d352e6a]
+entity bash 5.0--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="2808" y="574.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2803" y="579.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2803" y="600.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="2818" y="597.5991">bash 5.0</text><!--MD5=[3d99d59a27ec55cd9b0b1490801f78bc]
+entity dev--><ellipse cx="279" cy="194.104" fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M279,202.104 L279,229.104 M266,210.104 L292,210.104 M279,229.104 L266,244.104 M279,229.104 L292,244.104 " fill="none" filter="url(#f3lroi9t3xaz1)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="243.5" y="264.0991">Developer</text><!--MD5=[7a6811cd235efa937fbd17fdc56325f3]
+entity docker-compose--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="138" x="210" y="302.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="205" y="307.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="205" y="328.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="118" x="220" y="325.5991">docker-compose</text><!--MD5=[e78ab1c913e40472d309c6721a57f292]
+entity Source code--><rect fill="#FEFECE" filter="url(#f3lroi9t3xaz1)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="2794" y="823.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2789" y="828.604"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2789" y="849.9009"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="2804" y="846.5991">Source code</text><!--MD5=[ff37814ce1ad611ec4649e7f885dcc0f]
+link dev to docker-compose--><path d="M279,267.312 C279,277.278 279,287.243 279,297.209 " fill="none" id="dev-&gt;docker-compose" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="279,302.42,283,293.42,279,297.42,275,293.42,279,302.42" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b8a2a189c103bd29c558756f1196b85c]
+link docker-compose to shellcheck--><path d="M279,338.955 C279,415.796 279,492.638 279,569.48 " fill="none" id="docker-compose-&gt;shellcheck" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="279,574.541,283,565.541,279,569.541,275,565.541,279,574.541" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[6058781c51cf72e6135ed82911cfd702]
+link shellcheck to Source code--><path d="M286.171,610.859 C320.304,708.08 495.606,1160.6036 801.5,1160.6036 C801.5,1160.6036 801.5,1160.6036 2259,1160.6036 C2430.29,1160.6036 2488.07,1166.9462 2636,1080.6036 C2730.7,1025.33 2805.19,912.476 2834.04,864.262 " fill="none" id="shellcheck-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2836.69,859.802,2828.656,865.4989,2834.1375,864.1014,2835.535,869.5829,2836.69,859.802" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[34dd580d16956a18436deb03eaf2d876]
+link docker-compose to shfmt--><path d="M293.597,338.873 C322.241,376.807 391.79,466.033 460,531.604 C474.894,545.921 492.964,560.293 507.908,571.487 " fill="none" id="docker-compose-&gt;shfmt" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="512.035,574.558,507.2036,565.9756,508.0241,571.5726,502.427,572.3931,512.035,574.558" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[586657568a9eb303a377d611b1595598]
+link shfmt to Source code--><path d="M548.504,610.882 C594.091,700.547 808.953,1089.6036 1105,1089.6036 C1105,1089.6036 1105,1089.6036 2259,1089.6036 C2430.76,1089.6036 2480.58,1077.7255 2636,1004.604 C2713.79,968.003 2789.77,898.712 2825.62,863.431 " fill="none" id="shfmt-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2829.38,859.713,2820.1678,863.1965,2825.8245,863.2285,2825.7925,868.8852,2829.38,859.713" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ffe1c710c6506b2278a9a804b7cc029e]
+link docker-compose to bats 1--><path d="M297.441,339.07 C327.497,369.669 392.369,430.49 460,460.604 C564.354,507.068 701.534,518.166 765.617,520.798 " fill="none" id="docker-compose-&gt;bats 1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="770.846,521.001,762.0082,516.6544,765.8498,520.8067,761.6974,524.6483,770.846,521.001" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[caa0523c7402a64081d15bfbf2a1680e]
+link bats 1 to bash default--><path d="M802.5,539.813 C802.5,549.681 802.5,559.548 802.5,569.416 " fill="none" id="bats 1-&gt;bash default" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="802.5,574.576,806.5,565.576,802.5,569.576,798.5,565.576,802.5,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f5cf3af9d1701f2d47c6e600aa9e9d5a]
+link bash default to Source code--><path d="M815.387,610.636 C870.419,691.719 1109.84,1018.604 1393,1018.604 C1393,1018.604 1393,1018.604 2259,1018.604 C2430.38,1018.604 2473.28,991.402 2636,937.604 C2698.36,916.985 2766.97,883.637 2808.51,862.171 " fill="none" id="bash default-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2813.19,859.743,2803.3588,860.3322,2808.7506,862.0434,2807.0395,867.4353,2813.19,859.743" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[48848c1576cf353eca312c5d9216b562]
+link docker-compose to bats 2--><path d="M321.162,338.608 C357.223,353.841 411.327,375.399 460,389.604 C577.846,423.997 952.05,493.609 1069.43,515.122 " fill="none" id="docker-compose-&gt;bats 2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1074.49,516.049,1066.3572,510.494,1069.5717,515.1488,1064.9169,518.3633,1074.49,516.049" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[01991444e6deacac0594b2bcaf319cab]
+link bats 2 to bash 3.0--><path d="M1106,539.813 C1106,549.681 1106,559.548 1106,569.416 " fill="none" id="bats 2-&gt;bash 3.0" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1106,574.576,1110,565.576,1106,569.576,1102,565.576,1106,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[6e90b29354b8e48fd2c002dc86589e52]
+link bash 3.0 to Source code--><path d="M1121.73,610.696 C1182.42,683.038 1422.05,947.604 1681,947.604 C1681,947.604 1681,947.604 2259,947.604 C2455.81,947.604 2683.89,889.375 2788.77,859.232 " fill="none" id="bash 3.0-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2793.67,857.818,2783.914,856.4689,2788.8658,859.2037,2786.1311,864.1555,2793.67,857.818" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d77cddcdfdf23ca49ee5d2d828f3ee22]
+link docker-compose to bats 3--><path d="M348.365,332.95 C559.846,371.142 1198.69,486.512 1357.14,515.128 " fill="none" id="docker-compose-&gt;bats 3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1362.13,516.029,1353.9808,510.4981,1357.2091,515.1434,1352.5638,518.3716,1362.13,516.029" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b2fe2cf324a6e351171bc18e248f832b]
+link bats 3 to bash 4.0--><path d="M1394,539.813 C1394,549.681 1394,559.548 1394,569.416 " fill="none" id="bats 3-&gt;bash 4.0" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1394,574.576,1398,565.576,1394,569.576,1390,565.576,1394,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f27d76b8bd640035f79eb2081f036438]
+link bash 4.0 to Source code--><path d="M1414.59,610.801 C1484.19,673.483 1728.29,876.604 1969,876.604 C1969,876.604 1969,876.604 2259,876.604 C2453.34,876.604 2683.18,857.316 2788.72,847.377 " fill="none" id="bash 4.0-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2793.96,846.881,2784.6229,843.7475,2788.9823,847.3525,2785.3773,851.7118,2793.96,846.881" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[700c86021423313de08529d2d9fb079e]
+link docker-compose to bats 4--><path d="M348.275,314.597 C447.84,306.37 638.75,292.604 801.5,292.604 C801.5,292.604 801.5,292.604 1107,292.604 C1330.19,292.604 1569.68,443.82 1651.6,500.493 " fill="none" id="docker-compose-&gt;bats 4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1655.84,503.443,1650.7361,495.0198,1651.7355,500.5877,1646.1676,501.587,1655.84,503.443" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7c41a7c2332cb46a3473a25d728a5d6f]
+link bats 4 to bash 4.1--><path d="M1682,539.813 C1682,549.681 1682,559.548 1682,569.416 " fill="none" id="bats 4-&gt;bash 4.1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1682,574.576,1686,565.576,1682,569.576,1678,565.576,1682,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a9315150a3ac7f553a786502ecc144bc]
+link bash 4.1 to Source code--><path d="M1722.12,603.672 C1835.09,635.328 2171.87,727.558 2456,783.604 C2573.2,806.721 2711.8,825.217 2788.5,834.688 " fill="none" id="bash 4.1-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2793.92,835.354,2785.4795,830.2787,2788.9579,834.7398,2784.4968,838.2182,2793.92,835.354" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[484fd2097b4278da9cdf81ec5ffbf2c5]
+link docker-compose to bats 5--><path d="M336.82,302.561 C431.933,274.006 629.861,221.604 801.5,221.604 C801.5,221.604 801.5,221.604 1395,221.604 C1635.26,221.604 1874.34,430.608 1946.82,499.716 " fill="none" id="docker-compose-&gt;bats 5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1950.55,503.289,1946.8147,494.176,1946.9382,499.8315,1941.2826,499.9549,1950.55,503.289" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[528d3abecfebd93fcedbaa9d14262183]
+link bats 5 to bash 4.2--><path d="M1970,539.813 C1970,549.681 1970,559.548 1970,569.416 " fill="none" id="bats 5-&gt;bash 4.2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1970,574.576,1974,565.576,1970,569.576,1966,565.576,1970,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[3666a5d63cbb1a42e5ad8ebe6455524b]
+link bash 4.2 to Source code--><path d="M2010.02,603.405 C2112.65,631.851 2398.56,711.338 2636,779.604 C2687.76,794.486 2746.55,811.792 2788.9,824.332 " fill="none" id="bash 4.2-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2793.72,825.761,2786.2195,819.378,2788.9243,824.3463,2783.956,827.0511,2793.72,825.761" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f12737a24abe1fa29f87fcde2abb24b1]
+link docker-compose to bats 6--><path d="M337.069,302.518 C350.78,297.394 365.164,291.349 378,284.604 C417.516,263.838 419.191,244.696 460,226.604 C602.148,163.584 646.009,150.6 801.5,150.6 C801.5,150.6 801.5,150.6 1683,150.6 C1941.49,150.6 2175.72,419.272 2239.78,499.344 " fill="none" id="docker-compose-&gt;bats 6" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2243.06,503.458,2240.5867,493.9247,2239.947,499.5453,2234.3264,498.9056,2243.06,503.458" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[35d42619acec507faf5a24f5bca5c8df]
+link bats 6 to bash 4.3--><path d="M2258,539.813 C2258,549.681 2258,559.548 2258,569.416 " fill="none" id="bats 6-&gt;bash 4.3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2258,574.576,2262,565.576,2258,569.576,2254,565.576,2258,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[56464e55ac12353618cd076f173f6c06]
+link bash 4.3 to Source code--><path d="M2298.23,601.057 C2368.16,616.908 2518.07,654.452 2636,708.604 C2705.48,740.508 2779.49,791.671 2818.73,820.35 " fill="none" id="bash 4.3-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2822.88,823.394,2817.9889,814.8455,2818.8483,820.4367,2813.2572,821.2962,2822.88,823.394" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[3438a0b048f1758749c68b541eb5e468]
+link docker-compose to bats 7--><path d="M345.794,302.582 C357.155,297.797 368.387,291.875 378,284.604 C427.491,247.172 408.895,206.8 460,171.604 C589.458,82.45 644.311,79.6 801.5,79.6 C801.5,79.6 801.5,79.6 1971,79.6 C2248.98,79.6 2474.82,409.062 2531.35,499.1 " fill="none" id="docker-compose-&gt;bats 7" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2534.07,503.453,2532.6997,493.6999,2531.4233,499.2109,2525.9124,497.9346,2534.07,503.453" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f45d8aa018cfea69cb9f68f25d8aee23]
+link bats 7 to bash 4.4--><path d="M2546,539.813 C2546,549.681 2546,559.548 2546,569.416 " fill="none" id="bats 7-&gt;bash 4.4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2546,574.576,2550,565.576,2546,569.576,2542,565.576,2546,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2886c04e6a189b4f2526f9e5479bffe2]
+link bash 4.4 to Source code--><path d="M2586.12,609.255 C2602.2,616.882 2620.62,626.664 2636,637.604 C2714.92,693.745 2792.96,778.978 2827.93,819.155 " fill="none" id="bash 4.4-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2831.58,823.363,2828.7002,813.9446,2828.3021,819.5874,2822.6593,819.1892,2831.58,823.363" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d6a09dc03fc7052c833389c2094911ca]
+link docker-compose to bats 8--><path d="M348.038,303.606 C358.916,298.741 369.402,292.525 378,284.604 C441.76,225.856 394.226,164.088 460,107.6 C579.887,4.65 643.473,8.6 801.5,8.6 C801.5,8.6 801.5,8.6 2259,8.6 C2561.72,8.6 2783.97,399.454 2835.58,498.836 " fill="none" id="docker-compose-&gt;bats 8" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2837.91,503.346,2837.3346,493.514,2835.6158,498.9034,2830.2264,497.1846,2837.91,503.346" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[c223e53763270bdfc387fbdf6f735d6a]
+link bats 8 to bash 5.0--><path d="M2848,539.813 C2848,549.681 2848,559.548 2848,569.416 " fill="none" id="bats 8-&gt;bash 5.0" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2848,574.576,2852,565.576,2848,569.576,2844,565.576,2848,574.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[02360f17f41f73990cfb56e491fdcff7]
+link bash 5.0 to Source code--><path d="M2848,610.613 C2848,679.651 2848,748.689 2848,817.727 " fill="none" id="bash 5.0-&gt;Source code" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2848,823.123,2852,814.123,2848,818.123,2844,814.123,2848,823.123" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a99849278cd3a36d2d9ec42e8e23bccd]
+link dev to GitHub--><path d="M243.335,217.173 C207.672,215.432 152.275,218.634 115.453,224.485 " fill="none" id="dev-&gt;GitHub" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="110.16,225.368,119.6955,227.8326,115.0919,224.5453,118.3792,219.9417,110.16,225.368" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[197bea2e67ccb0f5561252e9d8bb98a3]
+link GitHub to dev--><!--MD5=[ed88fc3b05f783831266d1f6dfc1ee9a]
+link GitHub to Travis CI--><path d="M76.5,255.813 C76.5,265.681 76.5,275.548 76.5,285.416 " fill="none" id="GitHub-&gt;Travis CI" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="76.5,290.576,80.5,281.576,76.5,285.576,72.5,281.576,76.5,290.576" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8d7831181601d2546c412bb6d466d7f3]
+link Travis CI to docker-compose--><path d="M115.213,321.082 C140.305,324.948 174.101,327.677 204.397,328.539 " fill="none" id="Travis CI-&gt;docker-compose" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="209.617,328.67,200.7192,324.4475,204.6185,328.5457,200.5204,332.4451,209.617,328.67" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8d7831181601d2546c412bb6d466d7f3]
+link Travis CI to docker-compose--><!--MD5=[b35f890dd6746c89f314083e8ce0db15]
+link shellcheck to shfmt--><!--MD5=[e25ee30e0d9c6db4e20fdcc3975bd3fc]
+link shfmt to bats 1--><!--MD5=[77cc88f7303be99b3f44296d8ca2f9c2]
+link bats 1 to bats 2--><!--MD5=[3b7b080d0166d2ac66bff3b03a5c31e7]
+link bash default to bash 3.0--><!--MD5=[a6c7b5364b5e1f08bf11b756f18481bf]
+link bats 2 to bats 3--><!--MD5=[a168d34ced772c81b1be4fe08072798b]
+link bash 3.0 to bash 4.0--><!--MD5=[c30b7acbb97f738bff3ed33a3c8d5864]
+link bats 3 to bats 4--><!--MD5=[46eacb34720fb318e39bdb73ac79417f]
+link bash 4.0 to bash 4.1--><!--MD5=[7c8af5ae1cfaf479b99a9e49834657e2]
+link bats 4 to bats 5--><!--MD5=[d955987b5e4c622dcf0e968c26a77a7a]
+link bash 4.1 to bash 4.2--><!--MD5=[9bfe5edc3eeb78628ba63ae58a28ca72]
+link bats 5 to bats 6--><!--MD5=[4f728ab891a0a4ea14ca2aa248a26c71]
+link bash 4.2 to bash 4.3--><!--MD5=[0d3aae32d7e56f1b619da666c38a1e33]
+link bats 6 to bats 7--><!--MD5=[043e24dab16d3697abdd82c0e83a8598]
+link bash 4.3 to bash 4.4--><!--MD5=[8241b61a023adca08b97779640586bc1]
+link bats 7 to bats 8--><!--MD5=[f86237b611252df8db0fe97b30cd736f]
+link bash 4.4 to bash 5.0--><!--MD5=[039ee006c1722522abb74d0f97e58ca3]
+link Travis CI to dev--><!--MD5=[15612f874794dd64325bc95e54e92dea]
+link GitHub to docker-compose--><!--MD5=[09a80afbfd09ba6ce3f471a10988a88b]
+@startuml
+left to right direction
+
+
+cloud "Cloud service" {
+  [GitHub]
+  [Travis CI]
+}
+
+Actor Developer as dev
+[docker-compose]
+
+frame "Docker" {
+  frame "Shellcheck container" {
+    [shellcheck]
+  }
+  frame "Shfmt container" {
+    [shfmt]
+  }
+  frame "Bash containers" {
+    frame "Bash default container" {
+      [bats 1]
+      [bash default]
+    }
+    frame "Bash 3.0 container" {
+      [bats 2]
+      [bash 3.0]
+    }
+    frame "Bash 4.0 container" {
+      [bats 3]
+      [bash 4.0]
+    }
+    frame "Bash 4.1 container" {
+      [bats 4]
+      [bash 4.1]
+    }
+    frame "Bash 4.2 container" {
+      [bats 5]
+      [bash 4.2]
+    }
+    frame "Bash 4.3 container" {
+      [bats 6]
+      [bash 4.3]
+    }
+    frame "Bash 4.4 container" {
+      [bats 7]
+      [bash 4.4]
+    }
+    frame "Bash 5.0 container" {
+      [bats 8]
+      [bash 5.0]
+    }
+  }
+}
+
+
+dev -ri-> [docker-compose]
+
+[docker-compose] -ri-> [shellcheck]
+[shellcheck] -ri-> [Source code]
+
+[docker-compose] -ri-> [shfmt]
+[shfmt] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 1]
+[bats 1] -ri-> [bash default]
+[bash default] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 2]
+[bats 2] -ri-> [bash 3.0]
+[bash 3.0] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 3]
+[bats 3] -ri-> [bash 4.0]
+[bash 4.0] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 4]
+[bats 4] -ri-> [bash 4.1]
+[bash 4.1] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 5]
+[bats 5] -ri-> [bash 4.2]
+[bash 4.2] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 6]
+[bats 6] -ri-> [bash 4.3]
+[bash 4.3] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 7]
+[bats 7] -ri-> [bash 4.4]
+[bash 4.4] -ri-> [Source code]
+
+[docker-compose] -ri-> [bats 8]
+[bats 8] -ri-> [bash 5.0]
+[bash 5.0] -ri-> [Source code]
+
+dev -> [GitHub]
+[GitHub] -> [Travis CI]
+[Travis CI] -> [docker-compose]
+
+[shellcheck] -[hidden]- [shfmt]
+[shfmt] -[hidden]- [bats 1]
+[bats 1] -[hidden]- [bats 2]
+[bash default] -[hidden]- [bash 3.0]
+[bats 2] -[hidden]- [bats 3]
+[bash 3.0] -[hidden]- [bash 4.0]
+[bats 3] -[hidden]- [bats 4]
+[bash 4.0] -[hidden]- [bash 4.1]
+[bats 4] -[hidden]- [bats 5]
+[bash 4.1] -[hidden]- [bash 4.2]
+[bats 5] -[hidden]- [bats 6]
+[bash 4.2] -[hidden]- [bash 4.3]
+[bats 6] -[hidden]- [bats 7]
+[bash 4.3] -[hidden]- [bash 4.4]
+[bats 7] -[hidden]- [bats 8]
+[bash 4.4] -[hidden]- [bash 5.0]
+
+dev -[hidden]up- [GitHub]
+dev -[hidden]up- [Travis CI]
+[docker-compose] -[hidden]up- [GitHub]
+[docker-compose] -[hidden]up- [Travis CI]
+@enduml
+
+PlantUML version 1.2019.11(Sun Sep 22 10:02:15 UTC 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
