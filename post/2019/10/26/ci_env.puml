@@ -7,18 +7,36 @@ left to right direction
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 frame "Remote environment" {
-  cloud "Cloud service" {
+  cloud "GitHub service" {
     [GitHub]
-    [Travis CI]
   }
-  [docker-compose 1]
-  [docker-compose 2]
-  [docker-compose 3]
-  [docker-compose 4]
-  [docker-compose 5]
-  [docker-compose 6]
-  [docker-compose 7]
-  [docker-compose 8]
+  cloud "Travis CI service" {
+    [Travis CI]
+    frame "VM 1" {
+      [docker-compose 1]
+    }
+    frame "VM 2" {
+      [docker-compose 2]
+    }
+    frame "VM 3" {
+      [docker-compose 3]
+    }
+    frame "VM 4" {
+      [docker-compose 4]
+    }
+    frame "VM 5" {
+      [docker-compose 5]
+    }
+    frame "VM 6" {
+      [docker-compose 6]
+    }
+    frame "VM 7" {
+      [docker-compose 7]
+    }
+    frame "VM 8" {
+      [docker-compose 8]
+    }
+  }
 }
 
 Actor Developer as dev
@@ -155,12 +173,6 @@ dev -up-> [GitHub]
 [bash 4.3] -[hidden]- [bash 4.4]
 [bats 7] -[hidden]- [bats 8]
 [bash 4.4] -[hidden]- [bash 5.0]
-
-' GitHub, TravisCIなどのクラウド組はdevより上
-dev -[hidden]up- [GitHub]
-dev -[hidden]up- [Travis CI]
-[docker-compose] -[hidden]up- [GitHub]
-[docker-compose] -[hidden]up- [Travis CI]
 
 [docker-compose 1] -[hidden]- [docker-compose 2]
 [docker-compose 2] -[hidden]- [docker-compose 3]
