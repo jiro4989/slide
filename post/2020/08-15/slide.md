@@ -17,6 +17,7 @@ theme: uncover
 ```txt
 #!/bin/bash
 
+mkdir -p $HOME/bin
 wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
 install -m 0755 thx '$HOME/bin/thx'
 echo '== Finish =='
@@ -138,6 +139,40 @@ echo '== Finish =='
 
 ## 第2問
 
+`ssh` コマンドを使うと、リモートサーバに `ssh` で接続できる。  
+`ssh` コマンドの引数にコマンドを渡すと、リモートサーバにシェルを送って実行する事もできる。
+
+サーバに直接SSHしてコマンドを実行するのが面倒なので、
+サーバ上の環境変数を使って、sshごしにデプロイスクリプトを実行したい。
+
+以下がそのためのスクリプトだが、何が問題だろう？
+
+```bash
+#!/bin/bash
+
+ssh zero "env | grep APP_ENV"
+# -> prd が表示される
+
+ssh zero "/opt/infra/${APP_ENV}/deploy.sh"
+# /opt/infra/{prd,stg,dev} で各環境用のスクリプトが配置されるようになっている
+```
+
+---
+
+問題は、 `${APP_ENV}` 変数が空になること。
+ダブルクオートでくくられているので、 `${APP_ENV}` 変数はsshでリモートサーバに渡される**前**に変数が展開されてから、ssh先に渡される。
+
+`${APP_ENV}` はローカルPCには設定されていない環境変数のため。空文字になる。
+
+---
+
+ssh先で環境変数を使ってシェルを実行したいなら、今度は逆に**シングルクォート**で変数を囲う必要がある。
+
+使いたい変数が「いつ」評価されてほしいか、によってダブルクオートとシングルクォートを使い分けないといけない。
+
+
+## 第3問
+
 ある運用作業者が、サーバ上でいつも使っている関数群をまとめたシェルスクリプトがある。
 作業者は以下のようにいつもスクリプトをロードして、関数を実行して作業を行っていた。
 
@@ -232,17 +267,6 @@ function check_server() {
 `source` する前提のスクリプトに `set -eu` を付けない
 
 ---
-
-## 第3問
-
-```bash
-#!/bin/bash
-
-wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
-ssh dev sudo mkdir -p $HOME/bin
-scp thx dev:/tmp/thx
-ssh dev sudo install -m 0755 /tmp/thx $HONE/bin/thx
-```
 
 ## 第4問
 
@@ -350,3 +374,5 @@ sudo systemctl start app
 
 また、shellcheckやshfmtなどで、スクリプトの品質を高めることで、
 コードレビュー時点で検出できるようにするのも、なお良いと思います。
+
+デプロイ用途として、Ansibleなどのプロビジョニングツールを使うのもベターだと思います。
