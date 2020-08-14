@@ -20,6 +20,7 @@ theme: uncover
 mkdir -p $HOME/bin
 wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
 install -m 0755 thx '$HOME/bin/thx'
+rm thx
 echo '== Finish =='
 ```
 
@@ -37,6 +38,7 @@ echo '== Finish =='
 wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
 install -m 0755 thx '$HOME/bin/thx' # <-- NG
 install -m 0755 thx "$HOME/bin/thx" # <-- OK
+rm thx
 echo '== Finish =='
 ```
 
