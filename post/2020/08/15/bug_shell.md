@@ -1,6 +1,6 @@
 ---
 marp: false
-theme: uncover
+theme: default
 ---
 
 # **見落としがちなシェルわかるかな**
@@ -11,8 +11,9 @@ theme: uncover
 
 ## いきなりですが
 
-以下のシェル、バグがあるのですが分かりますか？  
-あるスクリプトをダウンロードしてきて、所定のパスにコピーするだけのシェルスクリプトです。
+以下のシェル、バグがあるのですが、分かりますか？  
+あるスクリプトをダウンロードしてきて、  
+所定のパスにコピーするだけのシェルスクリプトです。
 
 ```txt
 #!/bin/bash
@@ -35,6 +36,7 @@ echo '== Finish =='
 ```txt
 #!/bin/bash
 
+mkdir -p $HOME/bin
 wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
 install -m 0755 thx '$HOME/bin/thx' # <-- NG
 install -m 0755 thx "$HOME/bin/thx" # <-- OK
@@ -45,9 +47,13 @@ echo '== Finish =='
 ---
 
 ということで、僕のLTでは  
-「一見問題ないけれど、実はバグがあるシェルスクリプト」とその対策についての話をします。
+「一見問題ないけれど、実はバグがあるシェルスクリプト」の解説と、  
+その対策について話します。
 
-あと今回は飲んでないのでシラフで発表します
+話すスクリプトについては多少改変していますが、  
+いずれも実際に僕がやらかした実例をもとにしています。
+
+僕と同じミスをする人が減ってくれれば良いな、と思って話します。
 
 ---
 
@@ -62,7 +68,7 @@ echo '== Finish =='
 
 ## 自己紹介
 
-![jiro4989.png](https://lh4.googleusercontent.com/-j_KBtztsqEc/AAAAAAAAAAI/AAAAAAAAAFE/vBJ2jwo9y30/photo.jpg)
+![jiro4989.png](https://gyazo.com/364f369f7714b4e7fb2a6ed1ce5b58de/thumb/1000)
 
 | Key | Value |
 | --- | ----- |
@@ -83,12 +89,16 @@ echo '== Finish =='
 ```txt
 #!/bin/bash
 
+mkdir -p $HOME/bin
 wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
 install -m 0755 thx '$HOME/bin/thx'
+rm thx
 echo '== Finish =='
 ```
 
 ---
+
+## 第1問 対策
 
 最初にできる対策は、シンタックスハイライトのあるエディタを使うことです。  
 きちんと変数の色を識別してくれるエディタなら、以下のようにおかしいことに気づけます。
@@ -96,20 +106,37 @@ echo '== Finish =='
 ```bash
 #!/bin/bash
 
+mkdir -p $HOME/bin
 wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
 install -m 0755 thx '$HOME/bin/thx' # <-- NG
 install -m 0755 thx "$HOME/bin/thx" # <-- OK
+rm thx
 echo '== Finish =='
 ```
 
 ---
 
+次にできる対策は、 [shellcheck](https://github.com/koalaman/shellcheck) を使うことです。  
+`shellcheck` は前述の展開されない変数に対して、警告をだしてくれます。
 
-次にできる対策は、shellcheckを使うことです。  
-shellcheckは上記のような変数展開されない記述に対して、警告をだしてくれます。
+```log
+⟩ shellcheck q1.sh
 
-```bash
-TBD
+In q1.sh line 3:
+mkdir -p $HOME/bin
+         ^---^ SC2086: Double quote to prevent globbing and word splitting.
+
+Did you mean:
+mkdir -p "$HOME"/bin
+
+
+In q1.sh line 5:
+install -m 0755 thx '$HOME/bin/thx'
+                    ^-------------^ SC2016: Expressions don't expand in single quotes, use double quotes for that.
+
+For more information:
+  https://www.shellcheck.net/wiki/SC2016 -- Expressions don't expand in singl...
+  https://www.shellcheck.net/wiki/SC2086 -- Double quote to prevent globbing ...
 ```
 
 ---
@@ -123,18 +150,26 @@ TBD
 
 set -eu
 
+mkdir -p $HOME/bin
 wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
-install -m 0755 thx '$HOME/bin/thx'
+install -m 0755 thx "$HOME/bin/thx"
+rm thx
 echo '== Finish =='
 ```
 
-`set -eu` をいれても変数がシングルクォート内で展開されるようになったりはしませんが、
+※詳細は `man set` を参照
+
+---
+
+`set -eu` を入れることで、
 `install` コマンドに失敗したことに気づけるようになります。
 
-この例であれば、 `install` に失敗しても、その必ず成功する `echo` コマンドが実行されるため、スクリプト自体は終了ステータス 0 を返します。  
+この例であれば、 `install` に失敗しても、その直後に必ず成功する `echo` コマンドが実行されるため、スクリプト自体は終了ステータス 0 を返します。
+
 (シェルスクリプトは一番最後に実行されたコマンドの終了ステータスをスクリプト全体の終了ステータスとして返す)
 
-ですが、 `install` に失敗した時点でスクリプトが終了すれば、終了ステータスは 0 以外になります。  
+ですが、 `install` に失敗した時点でスクリプトが終了すれば、終了ステータスは 0 以外になります。
+
 また、最後のスクリプトの完了を表すテキストも出力されなくなるため、異常に早く気付けるようになります。
 
 ---
