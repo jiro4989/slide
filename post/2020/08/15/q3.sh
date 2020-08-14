@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 function download() {
   local app=$1
   local version=$2

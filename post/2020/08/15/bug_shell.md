@@ -248,34 +248,22 @@ For more information:
 
 ## 第3問
 
-ある運用作業者が、サーバ上でいつも使っている関数群をまとめたシェルスクリプトがある。
-作業者は以下のようにいつもスクリプトをロードして、関数を実行して作業を行っていた。
-
-```bash
-source /opt/infra/libs.sh
-
-download app
-deploy app
-check_server app
-```
-
----
-
-`/opt/infra/libs.sh` の中身は以下。
+以下のような、運用作業を楽にする関数を定義したファイル `q3.sh` があります。
 
 ```bash
 #!/bin/bash
 
 function download() {
   local app=$1
-  wget https://example.com/release/v1/${app}.tar.gz
+  local version=$2
+  wget https://github.com/jiro4989/nimjson/releases/download/${version}/${app}_linux.tar.gz
 }
 
 function deploy() {
   local app=$1
-  tar xzf ${app}.tar.gz
+  tar xzf ${app}_linux.tar.gz
   local now=$(date +%Y-%m-%d_%H%M%S)
-  sudo install -o www-data -g www-data -m 0700 ${app} /var/www/${app}/${now}
+  sudo cp -r ${app}_linux /var/www/${app}/${now}
   sudo systemctl stop ${app}
   sudo ln -sfn /var/www/${app}/${today} /var/www/${app}/current
   sudo systemctl start ${app}
@@ -291,27 +279,44 @@ function check_server() {
 
 ---
 
-ある日、同僚作業者に「スクリプトにはとりあえず `set -eu` 入れとくと良いよ」と言われたので、
-`set -eu` を追加した。
+普段は上記ファイルを端末上から `source` して関数を呼び出して作業をしています。
 
-安全性が高まって見える。
+```bash
+source q3.sh
+
+download nimjson v1.2.7
+deploy nimjson
+check_server nimjson
+```
+
+---
+
+ある日、同僚作業者に「スクリプトにはとりあえず `set -eu` 入れとくと良いよ」と指摘されました。
+
+`q3.sh`以外にも、スクリプトは複数存在します。
+
+それらスクリプトに加えて、上記 `q3.sh` にも、次のように `set -eu` を追加することにしました。
+
+---
+
 何が問題でしょう？
 
 ```bash
 #!/bin/bash
 
-set -eu
+set -eu # <-- 追加
 
 function download() {
   local app=$1
-  wget https://example.com/release/v1/${app}.tar.gz
+  local version=$2
+  wget https://github.com/jiro4989/nimjson/releases/download/${version}/${app}_linux.tar.gz
 }
 
 function deploy() {
   local app=$1
-  tar xzf ${app}.tar.gz
+  tar xzf ${app}_linux.tar.gz
   local now=$(date +%Y-%m-%d_%H%M%S)
-  sudo install -o www-data -g www-data -m 0700 ${app} /var/www/${app}/${now}
+  sudo cp -r ${app}_linux /var/www/${app}/${now}
   sudo systemctl stop ${app}
   sudo ln -sfn /var/www/${app}/${today} /var/www/${app}/current
   sudo systemctl start ${app}
@@ -327,19 +332,39 @@ function check_server() {
 
 ---
 
-実はこれ、 `check_server` 関数を呼び出したタイミングによっては、**関数を実行した瞬間に端末が終了する**。
-
-`grep` は正規表現にマッチする文字が存在しなかった場合、終了ステータスに 1 を返す。
-
-スクリプトを `source` で読み込むと、スクリプト内で定義している `set -eu` が現在のシェルプロセスに適用されてしまい、コマンドの実行結果が 0 以外だったときにプロセスを終了する時限爆弾を抱えることになる。
-
-たとえばログ・ファイルがログローテート直後だったりして、 `Start server` がログファイル内に存在しないタイミングや、サーバの起動に失敗した場合などに、関数を呼んだ瞬間に端末が閉じるという現象が起きる。
+一旦、前述の手順に従ってコマンドを実行してみます
 
 ---
 
-対策
+実はこれ、 `check_server` 関数を呼び出したタイミングによっては、  
+**関数を実行した瞬間に端末が終了します**。
 
-`source` する前提のスクリプトに `set -eu` を付けない
+(ここで実際に操作)
+
+---
+
+`grep` は正規表現にマッチする文字が存在しなかった場合、終了ステータスに 1 を返します。
+
+スクリプトを `source` で読み込むと、スクリプト内で定義している `set -eu` が現在のシェルプロセスに適用されます。
+
+すると、コマンドの実行結果が 0 以外だったときに、
+現在のシェルプロセスを強制的に終了されます。
+
+---
+
+たとえばログ・ファイルがログローテート直後だったりして、  
+`Start server` がログファイル内に存在しないタイミングや
+
+サーバの起動に失敗した場合などに、関数を呼んだ瞬間に端末が閉じるという現象が起きます。
+
+---
+
+## 第3問 対策
+
+`source` する前提のスクリプトに `set -eu` を付けないようにしましょう。
+
+また、 `echo $-` でシェルに適用されているオプションが確認できるので、
+上記オプションが付いていないか確認するようにしましょう。
 
 ---
 
