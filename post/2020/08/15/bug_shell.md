@@ -176,37 +176,75 @@ echo '== Finish =='
 
 ## 第2問
 
-`ssh` コマンドを使うと、リモートサーバに `ssh` で接続できる。  
-`ssh` コマンドの引数にコマンドを渡すと、リモートサーバにシェルを送って実行する事もできる。
+以下はリモートのサーバ上のログを圧縮してscpで取得するスクリプトです。  
 
-サーバに直接SSHしてコマンドを実行するのが面倒なので、
-サーバ上の環境変数を使って、sshごしにデプロイスクリプトを実行したい。
+リモートサーバのホスト名を圧縮ファイル名に使うことで、サーバ台数が増えたときに対応できるようになっています。
 
-以下がそのためのスクリプトだが、何が問題だろう？
+sshコマンドごしにスクリプトを送信しています。
+
+何が問題でしょう？
 
 ```bash
 #!/bin/bash
 
-ssh zero "env | grep APP_ENV"
-# -> prd が表示される
-
-ssh zero "/opt/infra/${APP_ENV}/deploy.sh"
-# /opt/infra/{prd,stg,dev} で各環境用のスクリプトが配置されるようになっている
+ssh dev-web-01 "
+HOST=$(hostname)
+mkdir -p /tmp/work/$HOST
+cp /var/log/web/*.log /tmp/work/$HOST
+cd /tmp/work
+tar czf $HOST.tar.gz ./$HOST
+"
+scp dev-web-01:/tmp/work/*.tar.gz .
 ```
 
 ---
 
-問題は、 `${APP_ENV}` 変数が空になること。
-ダブルクオートでくくられているので、 `${APP_ENV}` 変数はsshでリモートサーバに渡される**前**に変数が展開されてから、ssh先に渡される。
+実はこのスクリプト、 **`$HOST` が空文字として展開されています**。 
 
-`${APP_ENV}` はローカルPCには設定されていない環境変数のため。空文字になる。
+ダブルクオートでくくられているので、 `$HOST` 変数はリモートサーバにスクリプトが渡される**前**に変数が展開されてから、ssh先にスクリプトが送信されています。
+
+`$HOST` はローカルPCには設定されていない環境変数のため。空文字になります。
+
+あと`$(hostname)`もローカルPCの実行結果がHOSTにセットされているため、仮にきちんと評価されても、圧縮ファイル名が全部ローカルPCのホスト名になります。
 
 ---
 
-ssh先で環境変数を使ってシェルを実行したいなら、今度は逆に**シングルクォート**で変数を囲う必要がある。
+## 第2問 対策
 
-使いたい変数が「いつ」評価されてほしいか、によってダブルクオートとシングルクォートを使い分けないといけない。
+ssh先で変数を使ってシェルを実行したいなら、今度は逆に**シングルクォート**で変数を囲う必要があります。
 
+使いたい変数が「いつ」評価されてほしいか、によってダブルクオートとシングルクォートを使い分ける必要があります。
+
+```bash
+#!/bin/bash
+
+ssh dev-web-01 '
+HOST=$(hostname)
+mkdir -p /tmp/work/$HOST
+cp /var/log/web/*.log /tmp/work/$HOST
+cd /tmp/work
+tar czf $HOST.tar.gz ./$HOST
+'
+scp dev-web-01:/tmp/work/*.tar.gz .
+```
+
+---
+
+また、これも`shellcheck`で検出できます。  
+`shellcheck`にかけておくことも、問題を早期に発見できます。
+
+```log
+$ shellcheck q2.sh
+
+In q2.sh line 4:
+HOST=$(hostname)
+     ^---------^ SC2029: Note that, unescaped, this expands on the client side.
+
+For more information:
+  https://www.shellcheck.net/wiki/SC2029 -- Note that, unescaped, this expand...
+```
+
+---
 
 ## 第3問
 
