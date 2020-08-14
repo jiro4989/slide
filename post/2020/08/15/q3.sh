@@ -10,7 +10,7 @@ function deploy() {
   local app=$1
   tar xzf ${app}_linux.tar.gz
   local now=$(date +%Y-%m-%d_%H%M%S)
-  sudo install -o www-data -g www-data -m 0700 ${app}_linux /var/www/${app}/${now}
+  sudo cp -r ${app}_linux /var/www/${app}/${now}
   sudo systemctl stop ${app}
   sudo ln -sfn /var/www/${app}/${today} /var/www/${app}/current
   sudo systemctl start ${app}
