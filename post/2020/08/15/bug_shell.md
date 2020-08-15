@@ -375,6 +375,8 @@ function check_server() {
 
 特におかしいところはなさそうです。何が問題でしょう？
 
+※/var/secretsディレクトリは存在しない状態から実行します
+
 ```bash
 #!/bin/bash
 
@@ -388,6 +390,7 @@ sudo mv nimjson_linux/ "$SECRET_DIR"
 sudo chmod 0600 "$SECRET_DIR"/*
 sudo chown -R www-data:www-data "$SECRET_DIR"
 sudo chmod 0700 "$SECRET_DIR"
+rm *.tar.gz
 ```
 
 ---
@@ -395,24 +398,55 @@ sudo chmod 0700 "$SECRET_DIR"
 実はこのスクリプト、１回目は成功します。
 しかし、もう一度スクリプトを実行すると `chmod 0600` が失敗します。
 
-1回目のスクリプト実行時点で `$SECRET_DIR` の所有者:所有グループは `www-data:www-data` になり、  
-ディレクトリの権限は `0600` になりました。これにより、 developer ユーザは `$SECRET_DIR` 配下のファイルを読み込み権限はありません。
+glob (`*`) によるパス名展開にはディレクトリの読み込み権限が必要です。
 
-この状態だと `$SECRET_DIR` に `cd` することもできませんし、
-`chmod` のときに指定している `*` (glob) も展開されなくなっています。
+ディレクトリが存在しない時点で `sudo mv` を実行するとでは、
+ディレクトリの所有者は作業者になります。
 
-`*` glob によるパス名展開にはディレクトリの読み込み権限が必要です。
-1回目の mkdir 直後では読み込み権限があったものの、2回目では読み込み権限が無くなったことにより、
-2回目移行はスクリプトの実行が失敗するようになっています。
+(この例では `vagrant:vagrant`)
 
 ---
 
-対策
+```bash
+SECRET_DIR=/var/secrets
+sudo mv nimjson_linux/ "$SECRET_DIR"
+sudo chmod 0600 "$SECRET_DIR"/*
+```
+
+この時点でのchmodでは glob の展開に成功しますが、
+スクリプトの一番最後にディレクトリの所有者を `www-data` に変更しています。
+
+2回目のスクリプトを実行すると、 `sudo mv` ではディレクトリの所有者や権限は書き換えられません。
+
+よってスクリプトを再実行すると、 `chmod 0600` を実行したときの所有者は `www-data:www-data` で、権限が `0600` になっています。
+
+他のユーザに読み込み権限がないため、globが展開されません。
+
+---
+
+## 第4問 対策
 
 そのスクリプトは何回実行しても成功するかテストをしましょう
+
 可能なら、対象ディレクトリ上でファイルを操作するのではなく、
 予め完成形のファイル構造にし、最後に権限を設定したうえで
 mv してファイルを配置するようにしたほうがベターだと思います
+
+```bash
+#!/bin/bash
+
+set -eu
+
+wget https://github.com/jiro4989/nimjson/releases/download/v1.2.7/nimjson_linux.tar.gz > /dev/null 2>&1
+tar xzf nimjson_linux.tar.gz
+
+sudo chmod 0600 nimjson_linux/*
+sudo chmod 0700 nimjson_linux
+sudo chown -R www-data:www-data nimjson_linux
+
+sudo mv nimjson_linux/ /var/secrets
+rm *.tar.gz
+```
 
 ---
 
@@ -421,15 +455,23 @@ mv してファイルを配置するようにしたほうがベターだと思�
 たった5問でしたが、何問わかったでしょうか？
 
 - 変数の展開のされ方
-- sourceとsetオプションの適用範囲
+- sourceとsetオプションの適用のされ方
 - globと権限
 
 について話しました。
 
-特に権限周りが絡んでくると、普段何気なく使っているシェルが動かなくなったりシます。
+---
+
+特に権限周りが絡んでくると、普段何気なく使っているシェルが動かなくなったりします。
 事前にきちんとテストした上でスクリプトを実行しましょう。
 
-また、shellcheckやshfmtなどで、スクリプトの品質を高めることで、
-コードレビュー時点で検出できるようにするのも、なお良いと思います。
+また、shellcheckやshfmtなどで、静的にコードをチェックしたり、
+書式を整えられます。
+
+スクリプトの品質を高めることで、コードレビュー時点で検出できるようにするのも、なお良いと思います。
 
 デプロイ用途として、Ansibleなどのプロビジョニングツールを使うのもベターだと思います。
+
+---
+
+おわり
