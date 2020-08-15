@@ -1,0 +1,19 @@
+= slide
+:toc: left
+:sectnums:
+
+次郎がLTで発表する時に書いた資料を管理する。
+
+== 書き方
+
+VSCodeのMarp拡張を使う。
+
+MarpではMarkdownで書いたテキストをいい感じのPDFに変換してくれて大変便利。
+
+`post/yyyy/mm/dd` ディレクトリ配下にMarkdownファイルを配置して書く。
+一通り書き終わった段階で、Marpの機能でPDF出力する。
+
+PDFに出力し終えたら、 https://www.slideshare.net/jiro4989[SlideShare] の方にアップロードする。
+
+発表するときはSlideShareの方を画面に移しながら発表する。
+
