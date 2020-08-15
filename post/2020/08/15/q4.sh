@@ -10,3 +10,4 @@ sudo mv nimjson_linux/ "$SECRET_DIR"
 sudo chmod 0600 "$SECRET_DIR"/*
 sudo chown -R www-data:www-data "$SECRET_DIR"
 sudo chmod 0700 "$SECRET_DIR"
+rm *.tar.gz
