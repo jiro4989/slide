@@ -26,8 +26,8 @@ theme: default
 | Key | Value |
 | --- | ----- |
 | 名前 | 次郎 |
+| Twitter | [@jiro_saburomaru](https://twitter.com/jiro_saburomaru) |
 | 職業 | サーバサイドエンジニア |
-| おねがい | 勉強会初参加 ＋ 初LTなのでお手柔らかに |
 
 ---
 
@@ -39,8 +39,7 @@ theme: default
 
 GitHub Releases便利なので、僕は大変活用させてもらっています。
 
-GitHub Releasesは開発者にとっても、リポジトリを訪れた人(以降ユーザと記載)にとっても
-手軽に使える素晴らしい機能だと感じています。
+GitHub Releasesは開発者にとっても、リポジトリを訪れた人(以降ユーザ)にとっても、手軽に使える素晴らしい機能だと感じています。
 
 ---
 
@@ -58,7 +57,7 @@ GitHub Releasesご存知ない方のために軽く説明すると
 
 ---
 
-参考までに、僕が利用しているGitHub Releasesの画面
+参考
 
 ![参考画像](./ss_nimjson.png)
 
