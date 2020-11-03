@@ -3,7 +3,7 @@ marp: true
 theme: default
 ---
 
-# GitHub Releasesからインストールしたコマンドをバージョン管理する
+# GitHub Releasesからインストールしたコマンドを管理する
 
 発表者: 次郎 (@jiro_saburomaru)
 <!-- 30秒 -->
