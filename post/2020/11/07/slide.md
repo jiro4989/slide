@@ -3,66 +3,20 @@ marp: true
 theme: default
 ---
 
-# **シェルコードレビュー - 見落としがちなミスに来づけるか -**
+# GitHub Releasesからインストールしたコマンドをバージョン管理する
 
 発表者: 次郎 (@jiro_saburomaru)
-
----
-
-## いきなりですが
-
-以下のシェル、バグがあるのですが、分かりますか？  
-あるスクリプトをダウンロードしてきて、  
-所定のパスにコピーするだけのシェルスクリプトです。
-
-```txt
-#!/bin/bash
-
-mkdir -p $HOME/bin
-wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
-install -m 0755 thx '$HOME/bin/thx'
-rm thx
-echo '== Finish =='
-```
-
----
-
-実は、変数展開がされていないのがバグです。  
-ホームディレクトリ配下のbinディレクトリ配下にコピーしたいはずなのに、
-`$HOME/bin/thx` というディレクトリの下にスクリプトを配置しようとしています。
-
-分かりましたでしょうか。
-
-```txt
-#!/bin/bash
-
-mkdir -p $HOME/bin
-wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
-install -m 0755 thx '$HOME/bin/thx' # <-- NG
-install -m 0755 thx "$HOME/bin/thx" # <-- OK
-rm thx
-echo '== Finish =='
-```
-
----
-
-ということで、僕のLTでは  
-「一見問題ないけれど、実は問題があるシェルスクリプト」の解説と、  
-その対策について話します。
-
-話すスクリプトについては多少改変していますが、  
-いずれも実際に僕がやらかした実例をもとにしています。
-
-僕と同じミスをする人が減ってくれれば良いな、と思って話します。
 
 ---
 
 ## 目次
 
 1. 自己紹介
-1. 自己紹介
-1. 自己紹介
-1. 自己紹介
+1. GitHub Releasesについて
+1. 既存のパッケージ
+1. relmaで解決
+1. relmaの使い方
+1. まとめ
 
 ---
 
@@ -78,400 +32,201 @@ echo '== Finish =='
 
 ---
 
-## 第1問
+## GitHub Releasesについて
 
-一番最初に見せましたが、こちらのシェル。
-気づけましたでしょうか。
+皆様はGitHub Releasesを使ってますか？
 
-もし数百行もあるスクリプトの１行だけがこうなっていたら、見落としてしまいそうです。
-どうすれば防げたでしょう。
+GitHub Releases便利なので、次郎は大変活用させてもらっています。
 
-```txt
-#!/bin/bash
-
-mkdir -p $HOME/bin
-wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
-install -m 0755 thx '$HOME/bin/thx'
-rm thx
-echo '== Finish =='
-```
+GitHub Releasesは開発者にとっても、リポジトリを訪れた人(以降ユーザと記載)にとっても
+手軽に使える素晴らしい機能だと感じています。
 
 ---
 
-## 第1問 対策
+GitHub Releasesご存知ない方のために軽く説明すると
 
-最初にできる対策は、シンタックスハイライトのあるエディタを使うことです。  
-きちんと変数の色を識別してくれるエディタなら、以下のようにおかしいことに気づけます。
+- GitHubのリポジトリに紐づく、任意のファイルをユーザに提供できる機能
+    - [リポジトリのリリースを管理する - GitHub Docs](https://docs.github.com/ja/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository)
+- リポジトリのタグと紐付いていて、「タグを付与された時点でのリリース物」として利用される場合がほとんど
+    - 例: タグ `v1.0.1` のリリース物
+- 各OS用の実行可能ファイルや、コードから生成したフォントファイルといったのアセットファイルなどを圧縮して公開してるケースが多い(と思う)
+
+---
+
+参考までに、僕が利用しているGitHub Releasesの画面
+
+![参考画像](./ss_nimjson.png)
+
+---
+
+### なにが便利か
+
+開発者
+
+- 無料で使える
+- リリースファイルのアップロードが容易
+- CI (GitHub Actions, Travis CIなど)と連携して自動リリース可能
+
+ユーザ
+
+- 無料で使える
+- 簡単にダウンロードできる
+
+---
+
+次郎は主にGitHub Releasesにだけ公開されているコマンドのダウンロードに使っています
+
+有名なコマンドなどは `apt install` できたりするものもありますが、
+GitHub Releasesだけに公開されているコマンドも多いです。
+
+---
+
+### 管理に悩む
+
+こういったGitHub Releasesから取得するタイプのコマンドをインストールする時、僕は以下のようなコマンドを実行します。
 
 ```bash
-#!/bin/bash
-
-mkdir -p $HOME/bin
-wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
-install -m 0755 thx '$HOME/bin/thx' # <-- NG
-install -m 0755 thx "$HOME/bin/thx" # <-- OK
-rm thx
-echo '== Finish =='
-```
-
----
-
-次にできる対策は、 [shellcheck](https://github.com/koalaman/shellcheck) を使うことです。  
-`shellcheck` は前述の展開されない変数に対して、警告をだしてくれます。
-
-```log
-⟩ shellcheck q1.sh
-
-In q1.sh line 3:
-mkdir -p $HOME/bin
-         ^---^ SC2086: Double quote to prevent globbing and word splitting.
-
-Did you mean:
-mkdir -p "$HOME"/bin
-
-
-In q1.sh line 5:
-install -m 0755 thx '$HOME/bin/thx'
-                    ^-------------^ SC2016: Expressions don't expand in single quotes, use double quotes for that.
-
-For more information:
-  https://www.shellcheck.net/wiki/SC2016 -- Expressions don't expand in singl...
-  https://www.shellcheck.net/wiki/SC2086 -- Double quote to prevent globbing ...
-```
-
----
-
-最後に、スクリプトに `set -eu` を付けます。  
-`set -e` はコマンドの終了ステータスが0でない場合にシェルを終了させます。  
-`set -u` は未使用の変数を参照しようとしたときにエラーを発生させます。
-
-```bash
-#!/bin/bash
-
-set -eu
-
-mkdir -p $HOME/bin
-wget https://raw.githubusercontent.com/jiro4989/scripts/master/bin/thx
-install -m 0755 thx "$HOME/bin/thx"
-rm thx
-echo '== Finish =='
-```
-
-※詳細は `man set` を参照
-
----
-
-`set -eu` を入れることで、
-`install` コマンドに失敗したことに気づけるようになります。
-
-この例であれば、 `install` に失敗しても、その直後に必ず成功する `echo` コマンドが実行されるため、スクリプト自体は終了ステータス 0 を返します。
-
-(シェルスクリプトは一番最後に実行されたコマンドの終了ステータスをスクリプト全体の終了ステータスとして返す)
-
-ですが、 `install` に失敗した時点でスクリプトが終了すれば、終了ステータスは 0 以外になります。
-
-また、最後のスクリプトの完了を表すテキストも出力されなくなるため、異常に早く気付けるようになります。
-
----
-
-## 第2問
-
-以下はリモートのサーバ上のログを圧縮してscpで取得するスクリプトです。  
-
-リモートサーバのホスト名を圧縮ファイル名に使うことで、サーバ台数が増えたときに対応できるようになっています。
-
-sshコマンドごしにスクリプトを送信しています。
-
-何が問題でしょう？
-
-```bash
-#!/bin/bash
-
-ssh dev-web-01 "
-HOST=$(hostname)
-mkdir -p /tmp/work/$HOST
-cp /var/log/web/*.log /tmp/work/$HOST
-cd /tmp/work
-tar czf $HOST.tar.gz ./$HOST
-"
-scp dev-web-01:/tmp/work/*.tar.gz .
-```
-
----
-
-実はこのスクリプト、 **`$HOST` が空文字として展開されています**。 
-
-ダブルクオートでくくられているので、 `$HOST` 変数はリモートサーバにスクリプトが渡される**前**に変数が展開されてから、ssh先にスクリプトが送信されています。
-
-`$HOST` はローカルPCには設定されていない環境変数のため。空文字になります。
-
-あと`$(hostname)`もローカルPCの実行結果がHOSTにセットされているため、仮にきちんと評価されても、圧縮ファイル名が全部ローカルPCのホスト名になります。
-
----
-
-## 第2問 対策
-
-ssh先で変数を使ってシェルを実行したいなら、今度は逆に**シングルクォート**で変数を囲う必要があります。
-
-使いたい変数が「いつ」評価されてほしいか、によってダブルクオートとシングルクォートを使い分ける必要があります。
-
-```bash
-#!/bin/bash
-
-ssh dev-web-01 '
-HOST=$(hostname)
-mkdir -p /tmp/work/$HOST
-cp /var/log/web/*.log /tmp/work/$HOST
-cd /tmp/work
-tar czf $HOST.tar.gz ./$HOST
-'
-scp dev-web-01:/tmp/work/*.tar.gz .
-```
-
----
-
-また、これも`shellcheck`で検出できます。  
-`shellcheck`にかけておくことも、問題を早期に発見できます。
-
-```log
-$ shellcheck q2.sh
-
-In q2.sh line 4:
-HOST=$(hostname)
-     ^---------^ SC2029: Note that, unescaped, this expands on the client side.
-
-For more information:
-  https://www.shellcheck.net/wiki/SC2029 -- Note that, unescaped, this expand...
-```
-
----
-
-## 第3問
-
-以下のような、運用作業を楽にする関数を定義したファイル `q3.sh` があります。
-
-```bash
-#!/bin/bash
-
-function download() {
-  local app=$1
-  local version=$2
-  wget https://github.com/jiro4989/nimjson/releases/download/${version}/${app}_linux.tar.gz
-}
-
-function deploy() {
-  local app=$1
-  tar xzf ${app}_linux.tar.gz
-  local now=$(date +%Y-%m-%d_%H%M%S)
-  sudo cp -r ${app}_linux /var/www/${app}/${now}
-  sudo systemctl stop ${app}
-  sudo ln -sfn /var/www/${app}/${today} /var/www/${app}/current
-  sudo systemctl start ${app}
-}
-
-function check_server() {
-  local app=$1
-  grep 'Start server' /var/log/${app}/${app}.log
-}
-
-# .. その他様々な関数 ..
-```
-
----
-
-普段は上記ファイルを端末上から `source` して関数を呼び出して作業をしています。
-
-```bash
-source q3.sh
-
-download nimjson v1.2.7
-deploy nimjson
-check_server nimjson
-```
-
----
-
-ある日、同僚作業者に「スクリプトにはとりあえず `set -eu` 入れとくと良いよ」と指摘されました。
-
-`q3.sh`以外にも、スクリプトは複数存在します。
-
-それらスクリプトに加えて、上記 `q3.sh` にも、次のように `set -eu` を追加することにしました。
-
----
-
-何が問題でしょう？
-
-```bash
-#!/bin/bash
-
-set -eu # <-- 追加
-
-function download() {
-  local app=$1
-  local version=$2
-  wget https://github.com/jiro4989/nimjson/releases/download/${version}/${app}_linux.tar.gz
-}
-
-function deploy() {
-  local app=$1
-  tar xzf ${app}_linux.tar.gz
-  local now=$(date +%Y-%m-%d_%H%M%S)
-  sudo cp -r ${app}_linux /var/www/${app}/${now}
-  sudo systemctl stop ${app}
-  sudo ln -sfn /var/www/${app}/${today} /var/www/${app}/current
-  sudo systemctl start ${app}
-}
-
-function check_server() {
-  local app=$1
-  grep 'Start server' /var/log/${app}/${app}.log
-}
-
-# .. その他様々な関数 ..
-```
-
----
-
-一旦、前述の手順に従ってコマンドを実行してみます
-
----
-
-実はこれ、 `check_server` 関数を呼び出したタイミングによっては、  
-**関数を実行した瞬間に端末が終了します**。
-
-(ここで実際に操作)
-
----
-
-`grep` は正規表現にマッチする文字が存在しなかった場合、終了ステータスに 1 を返します。
-
-スクリプトを `source` で読み込むと、スクリプト内で定義している `set -eu` が現在のシェルプロセスに適用されます。
-
-すると、コマンドの実行結果が 0 以外だったときに、
-現在のシェルプロセスを強制的に終了されます。
-
----
-
-たとえばログ・ファイルがログローテート直後だったりして、  
-`Start server` がログファイル内に存在しないタイミングや
-
-サーバの起動に失敗した場合などに、関数を呼んだ瞬間に端末が閉じるという現象が起きます。
-
----
-
-## 第3問 対策
-
-`source` する前提のスクリプトに `set -eu` を付けないようにしましょう。
-
-また、 `echo $-` でシェルに適用されているオプションが確認できるので、
-上記オプションが付いていないか確認するようにしましょう。
-
----
-
-## 第4問
-
-ある秘匿情報を含んだ圧縮ファイルをダウンロードしてきて、
-所定のディレクトリ配下の秘密のディレクトリに配置するスクリプトです。
-
-特におかしいところはなさそうです。何が問題でしょう？
-
-※/var/secretsディレクトリは存在しない状態から実行します
-
-```bash
-#!/bin/bash
-
-set -eu
-
-wget https://github.com/jiro4989/nimjson/releases/download/v1.2.7/nimjson_linux.tar.gz > /dev/null 2>&1
+cd /tmp
+wget https://github.com/jiro4989/nimjson/releases/download/v1.2.8/nimjson_linux.tar.gz
 tar xzf nimjson_linux.tar.gz
-
-SECRET_DIR=/var/secrets
-sudo mv nimjson_linux/ "$SECRET_DIR"
-sudo chmod 0600 "$SECRET_DIR"/*
-sudo chown -R www-data:www-data "$SECRET_DIR"
-sudo chmod 0700 "$SECRET_DIR"
-rm *.tar.gz
+mkdir -p ~/bin
+install -m 0755 ./nimjson_linux/bin/nimjson ~/bin/
 ```
 
----
-
-実はこのスクリプト、１回目は成功します。
-しかし、もう一度スクリプトを実行すると `chmod 0600` が失敗します。
-
-glob (`*`) によるパス名展開にはディレクトリの読み込み権限が必要です。
-
-ディレクトリが存在しない時点で `sudo mv` を実行するとでは、
-ディレクトリの所有者は作業者になります。
-
-(この例では `vagrant:vagrant`)
+インストールする時は特にこれで不便ありません。
 
 ---
+
+ですが、コマンドをアップグレードしたくなった時に困りました。
+主に以下の問題に遭遇しました。
+
+- このコマンドどこから取得したっけ？
+- どうやってインストールしたっけ？
+- そもそも新しいバージョン出てるんだっけ？
+
+この問題はGitHub Releasesから取得するコマンドが増えるほど大きくなりました
+
+---
+
+「debianパッケージみたいに `apt install` でインストールできて、
+ `apt update` して `apt upgrade` でバージョン更新できたらいいのになぁ...」と感じるようになりました。
+
+ GitHub Releasesはタグに紐づくリリース物を公開する機能であって、
+ リリース物をユーザがどう管理するかについては責務外と思います。
+
+僕の「debianパッケージみたいに管理したい」がそもそも責務外の無茶な要求というものです。
+
+---
+
+ということで、作りました。
+
+GitHub Releasesでインストールしたコマンドの一括アップグレードを可能にするコマンドです。
+
+名前は `relma` としました。
+
+https://github.com/jiro4989/relma
+
+---
+
+## relma の使い方
+
+最初に `init` で初期化して、 `install` にリリース物のURLを渡してあげるだけです。
+
+これでリリース物の圧縮ファイルを展開して `$HOME/relma/bin` に実行可能ファイルのシンボリックリンクが配置されます。
 
 ```bash
-SECRET_DIR=/var/secrets
-sudo mv nimjson_linux/ "$SECRET_DIR"
-sudo chmod 0600 "$SECRET_DIR"/*
+relma init
+relma install https://github.com/jiro4989/nimjson/releases/download/v1.2.8/nimjson_linux.tar.gz
 ```
-
-この時点でのchmodでは glob の展開に成功しますが、
-スクリプトの一番最後にディレクトリの所有者を `www-data` に変更しています。
-
-2回目のスクリプトを実行すると、 `sudo mv` ではディレクトリの所有者や権限は書き換えられません。
-
-よってスクリプトを再実行すると、 `chmod 0600` を実行したときの所有者は `www-data:www-data` で、権限が `0600` になっています。
-
-他のユーザに読み込み権限がないため、globが展開されません。
 
 ---
 
-## 第4問 対策
+### アップグレード方法
 
-そのスクリプトは何回実行しても成功するかテストをしましょう
+以下の様に `update` して `upgrade` するだけです。
 
-可能なら、対象ディレクトリ上でファイルを操作するのではなく、
-予め完成形のファイル構造にし、最後に権限を設定したうえで
-mv してファイルを配置するようにしたほうがベターだと思います
+`update` では最新バージョンの有無をチェックし、バージョン情報をローカルに保存します。
+`upgrade` を実行するとアップグレード可能なパッケージをすべてアップグレードします。
 
 ```bash
-#!/bin/bash
-
-set -eu
-
-wget https://github.com/jiro4989/nimjson/releases/download/v1.2.7/nimjson_linux.tar.gz > /dev/null 2>&1
-tar xzf nimjson_linux.tar.gz
-
-sudo chmod 0600 nimjson_linux/*
-sudo chmod 0700 nimjson_linux
-sudo chown -R www-data:www-data nimjson_linux
-
-sudo mv nimjson_linux/ /var/secrets
-rm *.tar.gz
+relma update
+relma upgrade
 ```
+
+---
+
+### パッケージの確認
+
+relma でインストールしたパッケージの一覧を確認する場合は `list` を実行します。
+
+```bash
+relma list
+```
+
+---
+
+## relma の仕組み
+
+GitHub Releasesで公開されているコマンドの多くは、リリース手順を自動化されています。
+
+ローカルで手動で叩くコマンドか、あるいはCIからか、手段は違えど大なり小なり自動化されている場合が多いです。
+
+また、リリースファイルの命名も、リポジトリごとに違えど、概ね命名が決まっていて、「リリースファイル名に含まれるバージョン番号がリリースごとに異なる以外は同じ」という点で共通点があります。
+
+---
+
+よって、 `relma install` に指定したURLのバージョン番号をリリースのタグ番号で差し替えれば、次のバージョンのリリースファイルを取得するURLが特定できるのでは、と考えました。
+
+```bash
+https://github.com/jiro4989/nimjson/releases/download/${VERSION}/nimjson_${VERSION}_linux.tar.gz
+```
+
+開発者が毎回手動でリリースファイルを作っていて、命名が不規則だったり、タグとバージョン番号が不一致になるケースもあると思いますが、対象外にしました。
+
+あらゆるリポジトリをサポートするつもりはないですし、命名が不規則なのはリポジトリのオーナーの問題と考えます。
+
+8割くらいのリポジトリをカバーできれば、次郎は満足です。
+
+---
+
+また、リリースファイルを展開した後のディレクトリ構造も概ね同じ構造をしていると考えました。
+
+なので、展開後のディレクトリ構造を判別して実行可能ファイルのパスを特定できればインストール処理も自動化できると考えました。
+
+```
+release_v1.0.0.zip/
+    command.exe
+
+release_v1.0.0.zip/
+    release_v1.0.0/
+        command.exe
+
+release_v1.0.0.zip/
+    release_v1.0.0/
+        bin/
+            command.exe
+```
+
+---
+
+また、リリースファイルも `tar.gz` だったり `zip` だったりします。
+
+圧縮ファイルの種類の違いも relma が判別して展開するようにしています。
+
+なので、relmaを使う時は `install` コマンドの引数にURLを渡すだけで動作します。
+
+---
+
+（ここで実際に操作）
 
 ---
 
 ## まとめ
 
-たった5問でしたが、何問わかったでしょうか？
+- GitHub Releasesの話をしました
+- relma コマンドの使い方を説明しました
+- relma コマンドの仕組みを説明しました
 
-- 変数の展開のされ方
-- sourceとsetオプションの適用のされ方
-- globと権限
+皆様のお役に立てば幸いです。
 
-について話しました。
-
----
-
-特に権限周りが絡んでくると、普段何気なく使っているシェルが動かなくなったりします。
-事前にきちんとテストした上でスクリプトを実行しましょう。
-
-また、shellcheckやshfmtなどで、静的にコードをチェックしたり、
-書式を整えられます。
-
-スクリプトの品質を高めることで、コードレビュー時点で検出できるようにするのも、なお良いと思います。
-
-デプロイ用途として、Ansibleなどのプロビジョニングツールを使うのもベターだと思います。
-
----
-
-おわり
+以上
