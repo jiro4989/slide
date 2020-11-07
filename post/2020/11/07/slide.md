@@ -13,7 +13,7 @@ theme: default
 ## 目次
 
 1. 自己紹介
-1. GitHub Releasesについて
+1. GitHub Releasesとローカルでの管理
 1. relma の使い方
 1. relma の仕組み
 1. まとめ
@@ -34,7 +34,7 @@ theme: default
 
 ---
 
-## GitHub Releasesについて
+## GitHub Releasesとローカルでの管理
 
 ---
 
