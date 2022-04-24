@@ -251,6 +251,98 @@ https://man7.org/linux/man-pages/man4/console_codes.4.html
 
 ---
 
+`\x1b[31m GREEN \x1b[m` で緑色になる
+
+これってまさに構文解析と同じ。
+
+つまりPEGの出番。
+
+---
+
+基本形
+
+`\x1b[31m` (standard_color) で緑色になる
+
+prefix color suffix という3部分で構成。
+
+```peg
+colors <-
+  prefix color suffix
+
+prefix <-
+  '\e' '['
+
+color <-
+  ([349] / '10') [0-7]
+
+suffix <- 'm'
+```
+
+セミコロン区切りで複数の色を同時に定義できる。
+
+`\x1b[31;42m`
+
+```peg
+colors <-
+  prefix color (delimiter color)* suffix
+
+prefix <-
+  '\e' '['
+
+color <-
+  ([349] / '10') [0-7]
+
+suffix    <- 'm'
+delimiter <- ';'
+```
+
+色以外のテキストも存在する。
+
+```peg
+colors <-
+  prefix color (delimiter color)* suffix
+
+prefix <-
+  '\e' '['
+
+color <-
+  ([349] / '10') [0-7]
+
+text <- [^\e]+
+
+suffix    <- 'm'
+delimiter <- ';'
+```
+
+色か、テキストが0個以上連続する。
+
+```peg
+root <- (colors / text)*
+
+colors <-
+  prefix color (delimiter color)* suffix
+
+prefix <-
+  '\e' '['
+
+color <-
+  ([349] / '10') [0-7]
+
+text <- [^\e]+
+
+suffix    <- 'm'
+delimiter <- ';'
+```
+
+こんな具合に文法を徐々に拡張していくだけで良い。
+
+最終的な文法は以下。
+68行程度
+
+https://github.com/jiro4989/textimg/blob/master/parser/grammer.peg
+
+---
+
 ## まとめ
 
 - 必殺技の規則性を調べた
