@@ -327,10 +327,10 @@ delimiter <- ';'
 
 https://gist.github.com/jiro4989/8c52e3264cbe98482565d7f9783e4f80
 
-以下のようなテキストファイルを解析させてみます。
+以下のテキストファイルを解析させてみます。
 
 ```sample.txt
-ESC[31;42mhello world
+[31;42mhello world
 ```
 
 実行結果は以下のとおりです。それぞれ値が取り出せていることがわかります。
@@ -362,8 +362,6 @@ https://github.com/jiro4989/textimg/blob/master/parser/grammer.peg
 
 ## 感想
 
----
-
 PEGを書くだけでパーサーが生成されるので実装コストがとても安いことが分かりました。
 
 しかしながら、生成されるソースコードが非常に巨大なことも分かりました。
@@ -394,19 +392,16 @@ PEGを書くだけでパーサーが生成されるので実装コストがと�
 
 ## 参考文献
 
-以下は引用した資料のリンクです。
-
-注1: Wikipedia. 「Parsing Expression Grammar」. https://ja.wikipedia.org/wiki/Parsing_Expression_Grammar, (参照 2022-04-28)
-
-注2: Wikipedia. 「Parsing Expression Grammar」.  https://ja.wikipedia.org/wiki/Parsing_Expression_Grammar#PEG%E3%83%91%E3%83%BC%E3%82%B5%E7%94%9F%E6%88%90%E5%99%A8%E3%81%BB%E3%81%8B, (参照 2022-04-28)
-
-注3: GitHub. 「pointlander/peg」. https://github.com/pointlander/peg, (参照 2022-04-28)
-
-注4: Linux manual page. 「console_codes(4) — Linux manual page」. https://man7.org/linux/man-pages/man4/console_codes.4.html, (参照 2022-04-28)
-
 ---
 
-## 参考文献
+以下は引用した資料のリンクです。
+
+* 注1: Wikipedia. 「Parsing Expression Grammar」. https://ja.wikipedia.org/wiki/Parsing_Expression_Grammar, (参照 2022-04-28)
+* 注2: Wikipedia. 「Parsing Expression Grammar」.  https://ja.wikipedia.org/wiki/Parsing_Expression_Grammar#PEG%E3%83%91%E3%83%BC%E3%82%B5%E7%94%9F%E6%88%90%E5%99%A8%E3%81%BB%E3%81%8B, (参照 2022-04-28)
+* 注3: GitHub. 「pointlander/peg」. https://github.com/pointlander/peg, (参照 2022-04-28)
+* 注4: Linux manual page. 「console_codes(4) — Linux manual page」. https://man7.org/linux/man-pages/man4/console_codes.4.html, (参照 2022-04-28)
+
+---
 
 以下は PEG の書き方を理解するために参考にしたソースコードです。
 
