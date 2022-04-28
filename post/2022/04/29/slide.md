@@ -10,16 +10,6 @@ theme: default
 
 ---
 
-## 目次
-
-1. 自己紹介
-1. PEG (Parsing Expression Grammar)
-1. PEGの嬉しさ
-1. PEGの使い所
-1. まとめ
-
----
-
 ## 自己紹介
 
 ![jiro4989.png](https://gyazo.com/364f369f7714b4e7fb2a6ed1ce5b58de/thumb/1000)
@@ -32,11 +22,22 @@ theme: default
 
 ---
 
+## 目次
+
+1. PEG (Parsing Expression Grammar)
+1. PEGの嬉しさ
+1. PEGの使い所
+1. 感想
+1. まとめ
+
+---
+
 ## PEG (Parsing Expression Grammar)
 
 ---
 
-ざっくり言うと「文法を定義して、テキストの構文解析をする文法」。実装からは独立している。類似の技術としてはYACCが該当する。
+ざっくり言うと「構文解析をするための文法」。実装からは独立している。
+類似の技術としてはYACCが該当する。
 
 > Parsing Expression Grammar (PEG) は、分析的形式文法の一種であり、形式言語をその言語に含まれる文字列を認識するための一連の規則を使って表したものである。
 
@@ -56,17 +57,17 @@ PEGのパーサジェネレータはすでに多数存在しており、様々�
 これは簡易な ini ファイル風の設定ファイル文法である。
 
 ```peg
-root <- pair+
+root      <- pair+
 
-pair <- space key space '=' space value space delimiter
+pair      <- space key space '=' space value space delimiter
 
-key   <- [a-zA-Z] [-_a-zA-Z0-9]*
-value <- atom
+key       <- [a-zA-Z] [-_a-zA-Z0-9]*
+value     <- atom
 
-atom   <- bool / int / string
-string <- '"' ('\\' '"' / [^"])* '"'
-int    <- '0' / [1-9] [0-9]*
-bool   <- 'true' / 'false'
+atom      <- bool / int / string
+string    <- '"' ('\\' '"' / [^"])* '"'
+int       <- '0' / [1-9] [0-9]*
+bool      <- 'true' / 'false'
 
 space     <- (' ' / '　' / '\t')*
 delimiter <- '\n' / ';'
@@ -74,7 +75,7 @@ delimiter <- '\n' / ';'
 
 ---
 
-前述のルールでは、以下の設定ファイルを解釈できる。
+前述のルールでは、以下のテキストを解釈できる。
 
 ```ini
 name = "test_app"
@@ -83,7 +84,7 @@ debug = true
 ```
 
 ただし、前述のルールだけでは、構文を解析できるだけで、値を取り出すことができない。
-そこで、今回使うGo用のパーサジェネレータの独自の構文を使うことで値を取り出せるようにする。
+そこで、今回使うGo用のパーサジェネレータの独自の構文を使うことで値を取り出す。
 
 ---
 
@@ -96,17 +97,17 @@ type Parser Peg {
   ParserFunc
 }
 
-root <- pair+
+root      <- pair+
 
-pair <- space key space '=' space value space delimiter
+pair      <- space key space '=' space value space delimiter
 
-key   <- <[a-zA-Z] [-_a-zA-Z0-9]*> { p.pushKey(text) }
-value <- atom
+key       <- <[a-zA-Z] [-_a-zA-Z0-9]*>    { p.pushKey(text) }
+value     <- atom
 
-atom   <- bool / int / string
-string <- '"' <('\\' '"' / [^"])*> '"' { p.pushString(text) }
-int    <- <'0' / [1-9] [0-9]*>         { p.pushInt(text) }
-bool   <- <'true' / 'false'>           { p.pushBool(text) }
+atom      <- bool / int / string
+string    <- '"' <('\\' '"' / [^"])*> '"' { p.pushString(text) }
+int       <- <'0' / [1-9] [0-9]*>         { p.pushInt(text) }
+bool      <- <'true' / 'false'>           { p.pushBool(text) }
 
 space     <- (' ' / '　' / '\t')*
 delimiter <- '\n' / ';'
@@ -115,8 +116,14 @@ delimiter <- '\n' / ';'
 ---
 
 これで構文解析と、値の取り出しをまとめてできるようになった。
+
 コンパイラで言う字句解析と構文解析を一緒にやっている。意味解析はできない。
+
 実際に設定ファイルを読み込んで、値が取り出せているか確認してみる。
+
+---
+
+確認用のコードが以下。
 
 ```go
 func main() {
@@ -155,7 +162,7 @@ name = "test_app"
 port = 1234
 debug = true
 
-⟩ ./configifle
+⟩ ./configfile
 key = port, value = 1234, type = int
 key = debug, value = true, type = bool
 key = name, value = test_app, type = string
@@ -213,9 +220,12 @@ PEGが構文解析に有用であることを今まで話した。
 
 そう、 **ANSIエスケープシーケンス** である。
 
+textimg というコマンドのANSIエスケープシーケンスの処理部分を PEG を使って実装してみた話をします。
+（ここから本題）
+
 ---
 
-ANSIエスケープシーケンスに関する話は、2019年8月の第43回シェル芸勉強会のLTで発表したので今回は割愛する。
+textimg とANSIエスケープシーケンスに関する話は、2019年8月の第43回シェル芸勉強会のLTで発表した。気になる方は以下の資料を見てほしい。
 
 [ANSIエスケープシーケンスで遊ぶ - /home/jiro4989](https://scrapbox.io/jiro4989/ANSI%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E3%81%A7%E9%81%8A%E3%81%B6)
 
@@ -223,47 +233,47 @@ ANSIエスケープシーケンスに関する話は、2019年8月の第43回シ
 
 ---
 
-ターミナル上でテキストに色がついて表示されているのは、ターミナルがANSIエスケープシーケンスを解釈しているから。
-
-![terminal](./terminal.png)
-
----
-
-具体的には、以下のようなテキスト
-
-`\x1b[31mGREEN\x1b[m`
-
-```bash
-⟩ ls -lah --color=always | less
-```
-
-![ls](./ls.png)
-
----
-
-ANSIエスケープシーケンスのコード定義は man にかかれている。
+まず、ANSIエスケープシーケンスの定義は man にかかれている。
 
 `man console_codes`
 
 https://man7.org/linux/man-pages/man4/console_codes.4.html
 
-定義上はANSIエスケープシーケンスのCSIと値、mは SGR (Select Graphic Rendition) Parameter が正式名称。
+---
+
+ANSIエスケープシーケンスは別に端末上の表示制御だけ行うわけではない。
+
+Beep音を鳴らしたり、端末上のカーソルを移動したり、いろんな事ができる。
+
+定義上はANSIエスケープシーケンスのうち、グラフィック制御を行うものは **SGR (Select Graphic Rendition)** と呼ぶ。
+
+textimg はこの SGR の解釈だけを実装している。
 
 ---
 
-`\x1b[31m GREEN \x1b[m` で緑色になる
+SGR の文法は `ESC [ parameters m` となっている。
 
-これってまさに構文解析と同じ。
+> The ECMA-48 SGR sequence ESC [ parameters m sets display attributes.  Several attributes can be set in the same sequence, separated by semicolons.  An empty parameter (between semicolons or string initiator or terminator) is interpreted as a zero.
 
-つまりPEGの出番。
+> ECMA-48 SGR シーケンス ESC [ parameters m は、表示属性を設定する。 同じシーケンスで、セミコロンで区切って複数の属性を設定することができる。 空のパラメータ（セミコロンまたは文字列のイニシエータまたはターミネータの間）は0と解釈されます。
 
 ---
 
-基本形
+つまりは parameters 部分は可変長であるので、もう少し細かく文法を書くと以下のようになる。
 
-`\x1b[31m` (standard_color) で緑色になる
+```text
+ESC [ parameter (;parameter)* m
+```
+
+これをPEGで表現してみる。
+
+---
+
+まず最初に基本形。parametersが 30~37、40~47、90~97、100~107 を解釈する。
+1の位が8の場合は更に追加でパースが必要になるが、ここでは省略。
 
 prefix color suffix という3部分で構成。
+これで `ESC[31m` (前景色が赤)が解釈できるようになった。
 
 ```peg
 colors <-
@@ -278,9 +288,12 @@ color <-
 suffix <- 'm'
 ```
 
-セミコロン区切りで複数の色を同時に定義できる。
+---
 
-`\x1b[31;42m`
+次に、セミコロン区切りで複数のparameterを指定できるようにする。
+区切り文字 delimiter を定義し、0個以上の定義を追加した。
+
+これで `ESC[31;42m` (前景色が赤、背景色が緑)が解釈できるようになった。
 
 ```peg
 colors <-
@@ -296,25 +309,12 @@ suffix    <- 'm'
 delimiter <- ';'
 ```
 
-色以外のテキストも存在する。
+---
 
-```peg
-colors <-
-  prefix color (delimiter color)* suffix
+これだけだと SGR しか解釈できないため、テキストも解釈できるようにする。
+ESC 以外のすべての文字を text として解釈することとした。
 
-prefix <-
-  '\e' '['
-
-color <-
-  ([349] / '10') [0-7]
-
-text <- [^\e]+
-
-suffix    <- 'm'
-delimiter <- ';'
-```
-
-色か、テキストが0個以上連続する。
+これで最低限の SGR が含まれるテキストを解釈できる文法が整った。
 
 ```peg
 root <- (colors / text)*
@@ -334,21 +334,48 @@ suffix    <- 'm'
 delimiter <- ';'
 ```
 
-こんな具合に文法を徐々に拡張していくだけで良い。
+---
 
-最終的な文法は以下。
-68行程度
+不完全な SGR や、SGR以外のANSIエスケープシーケンスが混在していた時にパースに失敗する。
+
+無視する文字列なども解釈できるようにする必要があるが、今回は割愛。
+
+
+---
+
+こんな具合に文法を徐々に拡張していって、最終的な文法は以下のようになった。
+
+行数だけで見ると70行程度しかない。
 
 https://github.com/jiro4989/textimg/blob/master/parser/grammer.peg
 
 ---
 
+## 感想
+
+---
+
+PEGを書くだけでパーサーが生成されるので実装コストがとても軽いことがわかった。
+
+しかしながら、生成されたコードを見てみると分かるが、非常に巨大なソースコードが生成される。
+
+```bash
+⟩ wc -l parser/grammer.peg.go
+1300 parser/grammer.peg.go
+```
+
+SGR のパーサを作るにはややオーバースペックな印象がある。
+
+逆に、複雑な構文や、構文が今後複雑になる可能性があるなら PEG でパーサーを自動生成するのは便利そう。
+
+---
+
 ## まとめ
 
-- 必殺技の規則性を調べた
-- sayhissatsuwaza コマンドで必殺技を喋れるようになった
-  - <https://github.com/jiro4989/sayhissatsuwaza>
+以下の話をしました。
 
-これでいつでも必殺技ができるよ！やったね！
+1. PEG を使うと可読性が高く、複雑な構文解析を低コストで実装できる
+1. PEG をANSIエスケープシーケンスの SGR の構文解析に使ってみたら良かった
+1. PEG は簡単な構文の解析にはややオーバースペックそうだけれど、構文が今後どう変化するか見えない場合には強力そう
 
 以上
