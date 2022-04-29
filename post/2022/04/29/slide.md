@@ -281,18 +281,19 @@ suffix <- 'm'
 
 これで `ESC[31;42m` (前景色が赤、背景色が緑) のSGRを解釈できるようになりました。
 
-```peg
-colors <-
-  prefix color (delimiter color)* suffix
+```diff
+ colors <-
+-  prefix color suffix
++  prefix color (delimiter color)* suffix
 
-prefix <-
-  '\e' '['
-
-color <-
-  ([349] / '10') [0-7]
-
-suffix    <- 'm'
-delimiter <- ';'
+ prefix <-
+   '\e' '['
+ 
+ color <-
+   ([349] / '10') [0-7]
+ 
+ suffix    <- 'm'
++delimiter <- ';'
 ```
 
 ---
@@ -302,22 +303,22 @@ ESC 以外のすべての文字を `text` として定義しました。
 
 これで最低限の SGR が含まれるテキストを解釈できる文法が整いました。
 
-```peg
-root <- (colors / text)*
+```diff
++root <- (colors / text)*
 
-colors <-
-  prefix color (delimiter color)* suffix
+ colors <-
+   prefix color (delimiter color)* suffix
+ 
+ prefix <-
+   '\e' '['
+ 
+ color <-
+   ([349] / '10') [0-7]
 
-prefix <-
-  '\e' '['
++text <- [^\e]+
 
-color <-
-  ([349] / '10') [0-7]
-
-text <- [^\e]+
-
-suffix    <- 'm'
-delimiter <- ';'
+ suffix    <- 'm'
+ delimiter <- ';'
 ```
 
 ---
@@ -326,6 +327,10 @@ delimiter <- ';'
 全体のコードは以下にまとめています。
 
 https://gist.github.com/jiro4989/8c52e3264cbe98482565d7f9783e4f80
+
+![sgr](./sgr.png)
+
+---
 
 以下のテキストファイルを解析させてみます。
 
@@ -355,6 +360,8 @@ value = {1 0 hello world}
 こんな具合に文法を徐々に拡張していって、最終的な文法は以下のようになりました。
 
 https://github.com/jiro4989/textimg/blob/master/parser/grammer.peg
+
+![textimg](./textimg.png)
 
 行数だけで見ると70行程度しかないため、記述量は非常に少なく済んだと言えます。
 
