@@ -1,0 +1,24 @@
+{
+  "name": "slide",
+  "version": "1.0.0",
+  "description": "= slide\r :toc: left\r :sectnums:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiro4989/slide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiro4989/slide/issues"
+  },
+  "homepage": "https://github.com/jiro4989/slide#readme",
+  "devDependencies": {
+    "textlint": "^12.2.2",
+    "textlint-filter-rule-whitelist": "^2.0.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0"
+  }
+}
