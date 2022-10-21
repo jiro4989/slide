@@ -4,7 +4,7 @@
   "description": "= slide\r :toc: left\r :sectnums:",
   "main": "index.js",
   "scripts": {
-    "lint": "textlint --fix qiita/"
+    "lint": "textlint --preset ja-technical-writing qiita/*.md"
   },
   "repository": {
     "type": "git",
