@@ -3,6 +3,7 @@
 :sectnums:
 
 次郎がLTで発表する時に書いた資料を管理する。
+あとQiitaの記事をTextlintで添削します。
 
 == 書き方
 
@@ -17,3 +18,12 @@ PDFに出力し終えたら、 https://www.slideshare.net/jiro4989[SlideShare] �
 
 発表するときはSlideShareの方を画面に移しながら発表する。
 
+== 添削の仕方
+
+以下のコマンドを実行すると textlint が走ります。
+エラーが返ってきたら修正します。
+
+[source,bash]
+----
+$ npm run lint
+----
